@@ -13,8 +13,8 @@ Player0 = {
 
 
 assets = { 
-//	'background': 'atlas/',
-//	'submarine'	: 'atlas/', 
+	'background': 'atlas/sea.jpg',
+	'submarine'	: 'atlas/sub.jpg', 
 }
 
 
@@ -40,11 +40,10 @@ GameEngine = {
 		var ctx = this.ctx;
 		
 		//DRAFT start
-		//ctx.drawImage( Loader.load(assets['background']),
-		//				0, 0, 
-		//				this.canvas.width, this.canvas.height);
-		ctx.fillStyle = "rgb(200,0,0)";
-		ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+		ctx.drawImage( Loader.load(assets['background']),
+						0, 0, 
+						this.canvas.width, this.canvas.height);
+		
 		//DRAFT end
 		
 		var ent = this.Entities;
@@ -225,14 +224,14 @@ GameEngine = {
 		return ent;
 	},
 	//Drawer.rect(x, y, width, height, color, fillColor);
-	batchSpawn: function(x,array) {
-		var y=25;
-		for (var i=0; i<array.length; i++) {
+	//batchSpawn: function(x,array) {
+		//var y=25;
+		//for (var i=0; i<array.length; i++) {
 			
-			this.spawn ('Surface',x,y,array[i]); 
-			y+=50;
-		}
-	},
+			//this.spawn ('Surface',x,y,array[i]); 
+			//y+=50;
+		//}
+	//},
 
 	removeEntity: function(ent) {
 
