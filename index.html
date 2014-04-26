@@ -106,15 +106,13 @@
 <body>
     <div id="Space">
     <div id="SplashScreen">
-    <img src="prismaLogo_transp.png"></img>
     <div id="StartButton" class="MenuButton">Play!</div>
-	<div id="MuteButton" class="MenuButton">Mute</div>
-	<div id="DisableMusic" class="MenuButton">Disable Music<br/>(Dev Only)</div>
+	<div id="MuteButton" class="MenuButton">Mute Sound</div>
 	</div>
     </div> 
 
-    
-    <p class='description'>Prisma is a browser-based minimalist game. It was built for Ludom Dare #48 contest and it is published under BSD license. You can check the journal <a href="http://www.ludumdare.com/compo/author/sophron/">here</a> or view the <a href="https://github.com/black-duck/Prisma">code on Github</a>.
+
+    <p class='description'>Submerged Operations of Survival is a post apocalyptic 2d video game created for ludum dare 29.<a href="http://www.ludumdare.com/compo/author/alexio/">here</a> or view the <a href="https://github.com/black-duck/sos">code on Github.</a>.
     </div>
     </p>
 
@@ -127,7 +125,6 @@
 		var w = holder.innerWidth();
 		var h = holder.innerHeight();
 		holder.html('<canvas id="canvas" width="'+w+'px" height="'+h+'px"></canvas>');
-		//SoundManager.nextTrack(); //To be removed
         startGame();
     });
     $("#DisableMusic").click(function () {
