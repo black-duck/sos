@@ -50,7 +50,7 @@ function closepopup(id){
       background-color: #05B1EB; 
       height: 100px; width: 300px; 
       border: 5px solid #024961; 
-      position: absolute; 
+      position: relative; 
       visibility: hidden; /* hides the window when popup is inactive */ 
       font-family: Verdana, Geneva, sans-serif; 
       font-size: small; text-align: center; 
@@ -81,6 +81,47 @@ body { margin: 0px; }
  
 </style>
 	
+
+<body>
+<a href="#" onclick="openpopup('popup1')">Test Pop-up</a> 
+<div id="popup1" class="popup"> 
+Test Message  
+</div> 
+
+<div id="bg" class="popup_bg"></div>
+ 
+<!--Message that appears after beating the game-->
+<div id="winmsg">Aye! You saved your ship and crew! Good Job!</div>
+
+<!--Message that appears after a defeat-->
+<div id="diemsg">Argh! The last hope of humanity is now gone. Nice one Captain!</div>
+
+<!--Description of the main storyline-->
+<div id="storyline">
+<b><p>Year 2150..</p></b>
+<p>After years of wars and conflict, <br>
+the biggest military forces on earth, <br>
+unleased what humanity feared for a <br>
+long time.. A world-wide nuclear war! </p>
+
+<b><p>Now..</p></b>
+<p>Two years later, the majority of all <br>
+living beings has been driven extinct. <br>
+All cities turned to ruin, the land became <br>
+polluted and what was left of humanity <br>
+created underwater safehouses in order to <br>
+preserve life on earth. They used what was <br>
+left of old military submarines for transport <br>
+and protection against the dangers of the ocean..</p>
+
+You are the captain of one of these submarines. <br>
+Reach the nearest safehouse in time and save<br>
+yourself and your crew!
+</div>
+
+
+</body>
+
 </head>
 
 </html>

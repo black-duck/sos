@@ -40,6 +40,9 @@ GameEngine = {
 		var ctx = this.ctx;
 		
 		//DRAFT start
+		//ctx.drawImage( Loader.load(assets['background']),
+		//				0, 0, 
+		//				this.canvas.width, this.canvas.height);
 		ctx.fillStyle = "rgb(200,0,0)";
 		ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 		//DRAFT end
@@ -136,6 +139,12 @@ GameEngine = {
 
 
 		//DRAFT start
+		//if(InputEngine.actions['fire-primary']) {
+		//	Player0.turret._fireTrigger = true;	
+		//}
+		//else {
+		//	Player0.turret._fireTrigger = false;	
+		//}
 //		if(InputEngine.actions['go-up']) {
 //			
 //				Player0.submarine.moveUp();	
