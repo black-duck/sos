@@ -1,7 +1,7 @@
 //DRAFT - to be modified area start
 Player0 = {
     playing: true,
-	prisma: null,
+	submarine: null,
     lifebar: null,
 	area: { 
 		x:0,
@@ -13,9 +13,9 @@ Player0 = {
 
 
 assets = { 
-	'background': 'atlas/bg.jpg',
-	'Prisma'	: 'atlas/prisma2RGB.png', 
-    'Surface'   : 'atlas/red.jpg',
+	'background': 'atlas/',
+	'submarine'	: 'atlas/', 
+    'Surface'   : 'atlas/',
 }
 
 
@@ -108,14 +108,14 @@ GameEngine = {
 		}
 		
 		
-		if ( Player0.prisma.crashed) {
+		if ( Player0.sumarine.crashed) {
 			Drawer.ctx.fillStyle="#efe";
 			Drawer.ctx.lineStyle="#fffff0";
 			Drawer.ctx.font="38px sans-serif";
 			Drawer.ctx.fillText('Game Over, press F5 to restart',
 								Drawer.canvas.width/4 - 20,
 								Drawer.canvas.height/4 - 10);
-			Player0.prisma.zIndex = -1;
+			Player0.submarine.zIndex = -1;
 		}
 
 
@@ -124,20 +124,20 @@ GameEngine = {
 
 		var ent = this.Entities;
 		for (var i in ent) {
-			if (Player0.prisma == ent[i]) 
+			if (Player0.submarine == ent[i]) 
 				continue;
 			if (ent[i] === undefined)
 				continue;
-			if (Math.abs(Player0.prisma.pos.x - ent[i].pos.x) <  Player0.prisma.width/2 + ent[i].width/2 &&			
-				Math.abs(Player0.prisma.pos.y - ent[i].pos.y) <  Player0.prisma.height/2 + ent[i].height/2) {
+			if (Math.abs(Player0.submarine.pos.x - ent[i].pos.x) <  Player0.submarine.width/2 + ent[i].width/2 &&			
+				Math.abs(Player0.submarine.pos.y - ent[i].pos.y) <  Player0.submarine.height/2 + ent[i].height/2) {
 		
-				if (Math.abs(Player0.prisma.pos.x - ent[i].pos.x) < ent[i].width/2 - Player0.prisma.width/2 && 
-					Math.abs(Player0.prisma.pos.y - ent[i].pos.y) < ent[i].height/2 + Player0.prisma.height/2 ){	
-					Player0.prisma.inside(ent[i]);	
+				if (Math.abs(Player0.submarine.pos.x - ent[i].pos.x) < ent[i].width/2 - Player0.submarine.width/2 && 
+					Math.abs(Player0.submarine.pos.y - ent[i].pos.y) < ent[i].height/2 + Player0.submarine.height/2 ){	
+					Player0.submarine.inside(ent[i]);	
 					return;
 				}
 				else {
-					Player0.prisma.collision(ent[i]);					
+					Player0.submarine.collision(ent[i]);					
 					
 				}
 			}
@@ -149,29 +149,29 @@ GameEngine = {
 		//DRAFT start
 		if(InputEngine.actions['go-up']) {
 			
-				Player0.prisma.moveUp();	
+				Player0.submarine.moveUp();	
 			
 		}
 		else if(InputEngine.actions['go-down']) {
 			
-				Player0.prisma.moveDown();
+				Player0.submarine.moveDown();
 			
 		}
 		
 		if(InputEngine.actions['go-left']) {
 			
-				Player0.prisma.moveLeft();
+				Player0.submarine.moveLeft();
 			
 		}
 		else if(InputEngine.actions['go-right']) {
 			
-				Player0.prisma.moveRight();
+				Player0.submarine.moveRight();
 			
 		}
 		if (InputEngine.actions['rotate']) {
 			
 			InputEngine.actions['rotate'] = false;
-			Player0.prisma.rotate(true);
+			Player0.submarine.rotate(true);
 		}
 		
 		var ent = this.Entities;
@@ -179,13 +179,23 @@ GameEngine = {
 			ent[i].update();   	 
 		}
 			
-		Drawer.portPos.y = Player0.prisma.pos.y - (Drawer.portSize.h/2);
+		Drawer.portPos.y = Player0.submarine.pos.y - (Drawer.portSize.h/2);
+		Drawer.portPos.x = Player0.submarine.pos.x - (Drawer.portSize.w/2);
 		if (Drawer.portPos.y < 0) {
 			Drawer.portPos.y = 0;
 		}
 		if (Drawer.portPos.y + Drawer.portSize.h > Player0.area.h) {
 			Drawer.portPos.y = Player0.area.h - Drawer.portSize.h;
 		}
+		if (Drawer.portPos.x < 0) {
+			Drawer.portPos.x = 0; 
+		}
+		if (Drawer.portPos.x + Drawer.portSize.w > Player0.area.w) {
+			Drawer.portPos.x = Player0.area.w - Drawer.portSize.w;
+		}
+			
+		
+		
 		this.physic();
 
 		//Draft Garbage collector
