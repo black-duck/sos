@@ -27,17 +27,28 @@ InputEngine = {
 		
 				
             //move key bindings
-            InputEngine.bind(87, 'go-up');
-            InputEngine.bind(83, 'go-down');
-			InputEngine.bind(65,'go-left');
-			InputEngine.bind(68,'go-right');
+            InputEngine.bind(87, 'go-up');     //W
+            InputEngine.bind(83, 'go-down');   //S
+			InputEngine.bind(65,'go-left');	   //A
+			InputEngine.bind(68,'go-right');   //D
+			InputEngine.bind(119, 'go-up');     //w
+            InputEngine.bind(115, 'go-down');   //s
+			InputEngine.bind(97,'go-left');	   //a
+			InputEngine.bind(100,'go-right');   //d
 			
-			InputEngine.bind(38, 'go-up');
-			InputEngine.bind(40, 'go-down');
-			InputEngine.bind(37,'go-left');
-			InputEngine.bind(39,'go-right');
+			InputEngine.bind(38, 'go-up');	   //up-arrow
+			InputEngine.bind(40, 'go-down');   //down-arrow
+			InputEngine.bind(37,'go-left');    //left-arrow
+			InputEngine.bind(39,'go-right');   //right-arrow
            
-			InputEngine.bind(32, 'rotate');
+			InputEngine.bind(32,'fire-torpedo'); //space
+			InputEngine.bind(16,'fire-misile');	 //shift
+			InputEngine.bind(66,'fire-misile');	 //B
+			InputEngine.bind(98,'fire-misile');	 //b
+			
+			InputEngine.bind(101,'use-powerup');	 //e
+			InputEngine.bind(69,'use-powerup');		 //E
+			
             //event listeners
             canvas.addEventListener('mousemove', InputEngine.onMouseMove,true);
             document.addEventListener('keydown', InputEngine.onKeyDown,true);
