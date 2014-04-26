@@ -39,6 +39,20 @@ SoundManager = {
 			this.volumeNode.gain.value = this.effectsVolume;
 			//Connect the volumeNode to the context destination
 			this.volumeNode.connect(this.context.destination);
+
+
+			this.javascriptNode = this.context.createScriptProcessor(2048, 1, 1)	
+
+			this.analyser = this.context.createAnalyser();
+			this.analyser.smoothingTimeConstant = 0;
+			this.analyser.fftSize = 1024;
+			
+			var musicSource = this.context.createMediaElementSource(this.primaryAudio);
+			
+			musicSource.connect(this.analyser);
+			this.analyser.connect(this.javascriptNode);
+			this.javascriptNode.connect(this.context.destination);
+
 		}
 		
 	},
@@ -234,7 +248,7 @@ SoundManager = {
 	
 	
 	/*   Music Player   */
-	
+
 	//Array to hold the links of the music
 	srcArray: new Array(),
 	
@@ -390,8 +404,10 @@ SoundManager = {
 	
 	//Play the music
 	playMusic: function(){
-		this.analyser = this.context.createAnalyser(); // AnalyserNode method			
-		this.analyser.connect(context.destination);
+		this.analyser = this.context.createAnalyser(); 
+		this.analyser.smoothingTimeConstant = 0;
+		this.analyser.fftSize = 1024;
+		this.analyser.connect(this.context.destination);
 		var source = this.context.createMediaElementSource(this.primaryAudio); 
 		source.connect(this.analyser);
 	},
@@ -465,9 +481,11 @@ SoundManager = {
 	soundType: function(){
 		return this.audioType;
 	}	
+
+	
 }
 //Draft
-SoundManager.init();
-SoundManager.loadSounds(['sounds/die', 'sounds/transition'], [2, 3]);
-SoundManager.setMusic(['sounds/Nature_Dreams', 'sounds/Epic_Dubstep_Chillstep', 'sounds/Milosc']);
-SoundManager.startMusic();
+//SoundManager.init();
+//SoundManager.loadSounds(['sounds/die', 'sounds/transition'], [2, 3]);
+//SoundManager.setMusic(['sounds/Nature_Dreams', 'sounds/Epic_Dubstep_Chillstep', 'sounds/Milosc']);
+//SoundManager.startMusic();
