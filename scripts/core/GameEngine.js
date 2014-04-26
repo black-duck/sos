@@ -99,6 +99,12 @@ GameEngine = {
 		
 
 
+
+
+
+
+
+
 	},
 	physic: function () {
 
