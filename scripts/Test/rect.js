@@ -23,7 +23,7 @@ factory['Rect'] = Class.extend({
 
 	ang: 0,
 
-    nextSurface: false,
+    	nextSurface: false,
 
 	maxSpeed: 2,
 
@@ -46,8 +46,22 @@ factory['Rect'] = Class.extend({
 		this.img = Loader.load( this.imgSrc);
 
 	},
-draw: function (ctx) {
+
+	
+	update: function() {
+
+                this.pos.x += this.speed.x;
+                this.pos.y += this.speed.y;
+	},
+	
+
+	
+
+		
+
+	draw: function (ctx) {
       	
-    Drawer.rect(x,y) } 
+		Drawer.rect(this.pos.x,this.pos.y,this.width,this.height); 
+	}
 	    
 })
