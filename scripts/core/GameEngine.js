@@ -40,6 +40,9 @@ GameEngine = {
 		var ctx = this.ctx;
 		
 		//DRAFT start
+		//ctx.drawImage( Loader.load(assets['background']),
+		//				0, 0, 
+		//				this.canvas.width, this.canvas.height);
 		ctx.fillStyle = "rgb(200,0,0)";
 		ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 		//DRAFT end
@@ -53,6 +56,9 @@ GameEngine = {
 		//Draw all z-index with number n, and store the others.
 		//Draw all z-index with number n+1, and store the others.
 		//Until everything is drawn
+		
+
+
 		for(var i = 0; i < ent.length; i++){
 			if(ent[i].zIndex == undefined)
 				ent[i].zIndex = 0;
@@ -133,6 +139,12 @@ GameEngine = {
 
 
 		//DRAFT start
+		//if(InputEngine.actions['fire-primary']) {
+		//	Player0.turret._fireTrigger = true;	
+		//}
+		//else {
+		//	Player0.turret._fireTrigger = false;	
+		//}
 //		if(InputEngine.actions['go-up']) {
 //			
 //				Player0.submarine.moveUp();	
@@ -160,10 +172,10 @@ GameEngine = {
 //			Player0.submarine.rotate(true);
 //		}
 //		
-//		var ent = this.Entities;
-//		for (var i=ent.length; i-- ; i) {	
-//			ent[i].update();   	 
-//		}
+		var ent = this.Entities;
+		for (var i=ent.length; i-- ; i) {	
+			ent[i].update();   	 
+		}
 //			
 //		Drawer.portPos.y = Player0.submarine.pos.y - (Drawer.portSize.h/2);
 //		Drawer.portPos.x = Player0.submarine.pos.x - (Drawer.portSize.w/2);
