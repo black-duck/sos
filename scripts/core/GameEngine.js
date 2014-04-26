@@ -108,13 +108,7 @@ GameEngine = {
 		}
 		
 		
-		if ( Player0.sumarine.crashed) {
-			Drawer.ctx.fillStyle="#efe";
-			Drawer.ctx.lineStyle="#fffff0";
-			Drawer.ctx.font="38px sans-serif";
-			Drawer.ctx.fillText('Game Over, press F5 to restart',
-								Drawer.canvas.width/4 - 20,
-								Drawer.canvas.height/4 - 10);
+		if ( Player0.submarine.crashed) {
 			Player0.submarine.zIndex = -1;
 		}
 
@@ -168,11 +162,6 @@ GameEngine = {
 				Player0.submarine.moveRight();
 			
 		}
-		if (InputEngine.actions['rotate']) {
-			
-			InputEngine.actions['rotate'] = false;
-			Player0.submarine.rotate(true);
-		}
 		
 		var ent = this.Entities;
 		for (var i=ent.length; i-- ; i) {	
@@ -181,6 +170,8 @@ GameEngine = {
 			
 		Drawer.portPos.y = Player0.submarine.pos.y - (Drawer.portSize.h/2);
 		Drawer.portPos.x = Player0.submarine.pos.x - (Drawer.portSize.w/2);
+		var makidist = Player0.submarine.pos.x - Drawer.portPos.x;
+		
 		if (Drawer.portPos.y < 0) {
 			Drawer.portPos.y = 0;
 		}
@@ -189,10 +180,16 @@ GameEngine = {
 		}
 		if (Drawer.portPos.x < 0) {
 			Drawer.portPos.x = 0; 
-		}
+		} else if (makidist < (Drawer.portPos.x+1)) {
+			Player0.submarine.pos.x = Drawer.portPos.x+1;
+		} 
 		if (Drawer.portPos.x + Drawer.portSize.w > Player0.area.w) {
 			Drawer.portPos.x = Player0.area.w - Drawer.portSize.w;
+		} else if (makidist <= (Drawer.portSize.w/2)) {
+			Drawer.portPos.y = Player0.submarine.pos.y - (Drawer.portSize.h/2);
+			Drawer.portPos.x = Player0.submarine.pos.x - (Drawer.portSize.w/2);
 		}
+		
 			
 		
 		
