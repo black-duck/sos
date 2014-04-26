@@ -56,7 +56,7 @@ SoundManager = {
 	
 	//The Audio Context object
 	context: null,
-	
+	analyser: null,
 	//The volume node
 	volumeNode: null,
 	
@@ -95,6 +95,8 @@ SoundManager = {
 			source.buffer = this.soundBuffers[this.sounds[res]];
 			//No Loop
 			source.loop = false;
+			// AnalyserNode method
+			analyser = context.createAnalyser();			
 			//Connect it to the volumeNode
 			source.connect(this.volumeNode);
 			//Play immediately
@@ -388,7 +390,10 @@ SoundManager = {
 	
 	//Play the music
 	playMusic: function(){
-		this.primaryAudio.play();	
+		this.analyser = this.context.createAnalyser(); // AnalyserNode method			
+		this.analyser.connect(context.destination);
+		var source = this.context.createMediaElementSource(this.primaryAudio); 
+		source.connect(this.analyser);
 	},
 		
 	//Volume up the music
