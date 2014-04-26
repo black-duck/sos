@@ -57,9 +57,12 @@ function load() {
 	else {
 		 // And loop.
 		var canvas = document.getElementById('canvas');
-    	GameEngine.init(canvas);
+    	InputEngine.setup(canvas);
+		PhysicsEngine.init(); //PhysicsEngine must be init before GameEngine.
+		GameEngine.init(canvas);
+		Drawer.init(canvas);
 		Gameplay.init();
-    	Drawer.init(canvas);
+    	
     	loop();
 	}
 
