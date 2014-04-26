@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,target-densitydpi=device-dpi,user-scalable=yes" />
-
+	<!--core scripts-->
 	<script type="text/javascript" src="scripts/core/Loader.js"></script>  
     <script type="text/javascript" src="scripts/core/GameEngine.js"></script>
 	<script type="text/javascript" src="scripts/core/InputEngine.js"></script>
@@ -12,13 +12,14 @@
 	<script type="text/javascript" src="scripts/core/Drawer.js"></script>  
 	<script type="text/javascript" src="scripts/core/Gameplay.js"></script> 
 	<script type="text/javascript" src="scripts/core/color.js"></script>  
-
 	<script type="text/javascript" src="scripts/core/Class.js"></script> 
+	<script type="text/javascript" src="scripts/core/Dialogue.js"></script>
 	<script type="text/javascript" src="scripts/sos.js"></script>
 	<script type="text/javascript" src="scripts/Surface/Surface.js"></script> 
 	<script type="text/javascript" src="scripts/Effects/Lifebar.js"></script>
     <script type="text/javascript" src="scripts/core/start.js"></script> 
 	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	
 	<!--//effect scripts-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
@@ -106,6 +107,8 @@
 </head>
 
 <body>
+	
+	<!--Menu Buttons-->
     <div id="Space">
     <div id="SplashScreen">
     <div id="StartButton" class="MenuButton">Play!</div>
@@ -118,6 +121,7 @@
     </div>
     </p>
 
+	<!--functions that buttons call-->
 	<div id="canvasHolder"></div>	
 	<script>
     $("#StartButton").click(function () {
