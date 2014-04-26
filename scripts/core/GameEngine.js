@@ -109,12 +109,6 @@ GameEngine = {
 		
 		
 		if ( Player0.submarine.crashed) {
-			Drawer.ctx.fillStyle="#efe";
-			Drawer.ctx.lineStyle="#fffff0";
-			Drawer.ctx.font="38px sans-serif";
-			Drawer.ctx.fillText('Game Over, press F5 to restart',
-								Drawer.canvas.width/4 - 20,
-								Drawer.canvas.height/4 - 10);
 			Player0.submarine.zIndex = -1;
 		}
 
@@ -167,11 +161,6 @@ GameEngine = {
 			
 				Player0.submarine.moveRight();
 			
-		}
-		if (InputEngine.actions['rotate']) {
-			
-			InputEngine.actions['rotate'] = false;
-			Player0.submarine.rotate(true);
 		}
 		
 		var ent = this.Entities;
