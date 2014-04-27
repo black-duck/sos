@@ -85,7 +85,20 @@ SoundGen = {
             });
         }
         request.send();
-    }
+    },
+
+	//Mute all
+	muteall : function(){
+		this.sourceNode.gain.value = 0;
+	}
+	
+//Mute the sound
+	//muteAll: function(){
+		//this.globalMute = true;
+		//if(this.context != null)
+			//this.volumeNode.gain.value = 0;
+		//this.primaryAudio.muted = true;
+	//},
 
 }
 SoundGen.init()
