@@ -5,7 +5,7 @@ Wave = {
 
 	pos : {
 		x:0,
-		y:80
+		y:50
 	},
 
 
@@ -20,7 +20,7 @@ Wave = {
 
 	wavesWidth: [],
 
-	color: "blue",
+	color: "#395368",
 
 	__ddelay: 0,
 
@@ -56,7 +56,7 @@ Wave = {
 	draw: function () {
 		
 		for ( var i = 0, x = this.pos.x + this.width;
-				x > this.pos.x; 
+				x >= this.pos.x; 
 				i++, x -= this.step ) {
 				
 			Drawer.rect(x, this.pos.y + 5*Math.abs(Math.cos(i/10+this.time)),  
