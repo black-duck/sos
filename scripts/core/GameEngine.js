@@ -59,6 +59,7 @@ GameEngine = {
 		
 		/* Draw static Classes */
 		Seabed.draw()
+		Wave.draw()
 
 		/*
 		//Draw all z-index with number n, and store the others.
@@ -138,6 +139,7 @@ GameEngine = {
 	update: function () {
 
 
+		Wave.update()
 		Seabed.update()
 
 		//DRAFT start
@@ -168,12 +170,6 @@ GameEngine = {
 				Player0.submarine.moveRight();
 			
 		}
-//		if (InputEngine.actions['rotate']) {
-//			
-//			InputEngine.actions['rotate'] = false;
-//			Player0.submarine.rotate(true);
-//		}
-//		
 		var ent = this.Entities;
 		for (var i=ent.length; i-- ; i) {	
 			ent[i].update();   	 
@@ -227,7 +223,6 @@ GameEngine = {
 		this.Entities.push(ent);
 		return ent;
 	},
-	//Drawer.rect(x, y, width, height, color, fillColor);
 	//batchSpawn: function(x,array) {
 		//var y=25;
 		//for (var i=0; i<array.length; i++) {
