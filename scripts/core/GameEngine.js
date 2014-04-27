@@ -15,6 +15,8 @@ Player0 = {
 assets = { 
 	'background': 'atlas/sea.jpg',
 	'submarine'	: 'img/sub.jpg', 
+        'torpedo' : 'img/torpedo.jpg',
+	'obstacle' : 'img/obstacle.jpg',
 }
 
 
@@ -144,10 +146,10 @@ GameEngine = {
 
 		//DRAFT start
 		if(InputEngine.actions['fire-torpedo']) {
-			Player0.submarine._fireTrigger = true;	
+			Player0.submarine.startFire();	
 		}
 		else {
-			Player0.submarine._fireTrigger = false;	
+			Player0.submarine.stopFire();	
 		}
 		if(InputEngine.actions['go-up']) {
 			

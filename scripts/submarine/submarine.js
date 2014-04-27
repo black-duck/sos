@@ -16,6 +16,21 @@ factory['submarine'] = Class.extend({
 		y: 250
 	},
 	
+	size: {
+		x: 5,
+		y: 10
+	},
+
+
+
+	dir: {
+		x: 0,
+		y: 0
+	},
+
+
+
+
 	speed: { 
 		x:0,
 		y:0
@@ -127,7 +142,7 @@ factory['submarine'] = Class.extend({
 				);
 
 		//SoundManager.playSound('sounds/LaserBeam0');
-		this._fireCool = this._fireRate;
+		//this._fireCool = this._fireRate;
 	
 
 	},

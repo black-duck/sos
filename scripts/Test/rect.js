@@ -35,8 +35,12 @@ factory['Rect'] = Class.extend({
 
 	move: false,
 
+        //the list of checkpoints for the obstacles
+
 	checkpoints: [],
-	
+
+	//counter for how many item the above list has
+
 	pointCounter: 0,
 
 	newPos: {
@@ -87,7 +91,8 @@ factory['Rect'] = Class.extend({
 		
 	
 			
-
+		//checks if the item reached the wanted place,then stops it
+	
 		if ( this.pos.x == this.newPos.x &&  this.pos.y ==  this.newPos.y) {
 			this.speed.x = 0;
 			this.speed.y = 0;
@@ -124,6 +129,7 @@ factory['Rect'] = Class.extend({
 
 
 
+	//seting the new position
 
 	moveTo: function (x,y) {
 		this.newPos.x = x;
@@ -133,6 +139,7 @@ factory['Rect'] = Class.extend({
 		}
 	},	    
 
+   	//adding items to checkpoints list
 
 	addCheckpoint: function (x,y) {
 		this.checkpoints.push({x:x,y:y})
