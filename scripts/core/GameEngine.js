@@ -14,7 +14,7 @@ Player0 = {
 
 assets = { 
 	'background': 'atlas/sea.jpg',
-	'submarine'	: 'atlas/sub.jpg', 
+	'submarine'	: 'img/sub.jpg', 
 }
 
 
@@ -43,7 +43,8 @@ GameEngine = {
 		ctx.drawImage( Loader.load(assets['background']),
 						0, 0, 
 						this.canvas.width, this.canvas.height);
-		
+		//
+		//Player0.submarine.draw(ctx);
 		//DRAFT end
 		
 		var ent = this.Entities;
