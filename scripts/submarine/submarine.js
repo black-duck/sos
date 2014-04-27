@@ -8,8 +8,8 @@ factory['submarine'] = Class.extend({
 
 	zIndex: 3,	
 
-	width: 30,
-	height: 10,
+	width: 90,
+	height: 30,
 	
 	pos: {
 		x: 150,
