@@ -43,8 +43,10 @@
 	function imageChange(){
 	if (document.getElementById("Sound").src.match(/unmuted/g)) {
             document.getElementById("Sound").src = "img/disablemute.png";
+            SoundGen.muteall();
         } else if (document.getElementById("Sound").src.match(/disablemute/g)) {
 			document.getElementById("Sound").src = "img/unmuted.png";
+			SoundGen.unmuteall();
 		} 
 	}
 	</script>
