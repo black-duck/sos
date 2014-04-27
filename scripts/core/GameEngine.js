@@ -36,6 +36,20 @@ GameEngine = {
 		this.canvas = canvas;
 		this.ctx = canvas.getContext('2d');
 		
+		PhysicsEngine.addContactListener({
+
+			BeginContact: function(A,B) {
+				if (A.GetUserData().ent.onImpact) {
+					A.GetUserData().ent.onImpact(B.GetUserData().ent);
+				}
+				if (B.GetUserData().ent.onImpact) {
+					B.GetUserData().ent.onImpact(A.GetUserData().ent);
+				}
+			}
+
+		});
+
+
 		var scale;
 		
 		
@@ -198,16 +212,28 @@ GameEngine = {
 			
 		
 		
-	//	this.physic();
+		var dead = [];	
 
-		//Draft Garbage collector
-		//TODO
-		var ent = this.Entities;
-		for (var i=ent.length; i-- ; i) {	
-        	if ( ent[i] &&  ent[i].pos.x < -50 ) {
-				ent.splice( i, 1);		
+		for (var i=ent.length; i-- ; i) {
+
+			if (ent[i]._killed === true) {
+				dead.push(i);
+			} 
+			else {
+				ent[i].update();	
 			}
 		}
+
+		for (var i=0; i < dead.length; i++) {
+
+			if (ent[dead[i]].physBody) {
+				PhysicsEngine.removeBodyAsObj(ent[dead[i]].physBody);			
+			}
+			ent.splice(dead[i], 1);
+
+		}
+		
+
 
 	},
 

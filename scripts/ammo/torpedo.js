@@ -49,6 +49,8 @@ factory['torpedo'] = Class.extend({
 	                             halfWidth: this.size.y/2,
 	                             halfHeight: this.size.x/2,
 								
+								groups: ['allies'],
+								collidesWith: ['allies','enemies']
 	                        });     
 		
 		var vec = new Vec2(this.speed, 0);

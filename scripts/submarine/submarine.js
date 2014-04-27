@@ -74,7 +74,9 @@ factory['submarine'] = Class.extend({
 						userData: { id: 'submarine',
 									ent: this },
 						halfWidth: this.width/2,
-						halfHeight: this.height/2
+						halfHeight: this.height/2,
+						groups: ['allies'],
+						collidesWith: ['allies', 'enemies']
 		});
 		
 			

@@ -30,6 +30,8 @@ PhysicsEngine = {
     		new Vec2(0, 1), //zero-gravity    						
     		true ); //don't allow sleep
 		
+		this.addGroup('allies');
+		this.addGroup('enemies');
 		
 
 	},

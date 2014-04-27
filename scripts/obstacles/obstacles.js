@@ -55,17 +55,36 @@ factory['obstacle'] = Class.extend({
         },
 
         init: function(x, y) {
-		x = this.pos.x;
-                y = this.pos.y;
-                this.img = Loader.load( this.imgSrc);
+
+			x = this.pos.x;
+            y = this.pos.y;
+			this.physBody = PhysicsEngine.addBody({
+						
+					id: 'obstacle',
+					x: x,
+					y: y,
+					userData: { id: 'obstacle',
+								ent: this },
+					halfWidth: this.width/2,
+					halfHeight: this.height/2,
+
+					groups: ['enemies'],
+					collidesWith: ['allies', 'enemies']
+					
+			});
+			var vec = new Vec2(0,-1)
+	        
+			this.img = Loader.load( this.imgSrc);
+			this.physBody.SetLinearVelocity(vec)
 
         },
 
 
         update: function() {
-
-                this.pos.x += this.speed.x;
-                this.pos.y += this.speed.y;
+	
+				var pPos = this.physBody.GetPosition();
+				this.pos.x = pPos.x
+				this.pos.y = pPos.y
 
                 if ( this.move == true ) {
                         //this.speed.x = 1;
@@ -125,26 +144,32 @@ factory['obstacle'] = Class.extend({
  		draw: function (ctx) {
 
                 	Drawer.rawImage( this.img , this.pos.x , this.pos.y , this.width , this.height );
-       		 },
+		},
 
 
 
-       		 //seting the new position
+       	//seting the new position
 
-       		 moveTo: function (x,y) {
-               		 this.newPos.x = x;
-               		 this.newPos.y = y;
+       	 moveTo: function (x,y) {
+          		 this.newPos.x = x;
+           		 this.newPos.y = y;
                	
-		 if ( this.pos.x != this.newPos.x || this.pos.y != this.newPos.y ) {
+				 if ( this.pos.x != this.newPos.x || this.pos.y != this.newPos.y ) {
                        		 this.move = true;
                 }
         },
 
-       		 //adding items to checkpoints list
+       	 //adding items to checkpoints list
 
-      		  addCheckpoint: function (x,y) {
-               		 this.checkpoints.push({x:x,y:y})
-       		 }
+      	addCheckpoint: function (x,y) {
+        		 this.checkpoints.push({x:x,y:y})
+       	},
+
+		onImpact: function(otherEnt) {
+			//otherEnt.damage(this.damageAmount)
+			this._killed=true;
+			console.log("nistazw!!!");
+		}
 
 })
 
