@@ -110,14 +110,6 @@ GameEngine = {
 			ent[i].draw(ctx);	
 		}
 		
-		
-
-
-
-
-
-
-
 
 	},
 	physic: function () {
@@ -145,6 +137,8 @@ GameEngine = {
 	},
 	update: function () {
 
+
+		Seabed.update()
 
 		//DRAFT start
 		if(InputEngine.actions['fire-torpedo']) {

@@ -48,9 +48,7 @@ SoundGen = {
 			analyser.getByteFrequencyData(array);
 
 			// draw the spectrogram
-			if (sourceNode.playbackState == sourceNode.PLAYING_STATE) {
-				SoundGen.fft(array)
-			}
+			SoundGen.fft(array)
 
 
     	}
@@ -62,7 +60,7 @@ SoundGen = {
  
 	
 
-    	this.loadSound("sounds/2.mp3");
+    	this.loadSound("sounds/3.mp3");
 
 
    },
@@ -90,3 +88,4 @@ SoundGen = {
     }
 
 }
+SoundGen.init()
