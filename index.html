@@ -14,7 +14,7 @@
 	
 	<!--core scripts-->
 	<script type="text/javascript" src="scripts/core/Loader.js"></script>  
-        <script type="text/javascript" src="scripts/core/GameEngine.js"></script>
+    <script type="text/javascript" src="scripts/core/GameEngine.js"></script>
 	<script type="text/javascript" src="scripts/core/InputEngine.js"></script>
 	<script type="text/javascript" src="scripts/core/box2D.js"></script>
 	<script type="text/javascript" src="scripts/core/PhysicsEngine.js"></script>
@@ -26,11 +26,10 @@
 	<script type="text/javascript" src="scripts/Enviroment/Seabed.js"></script>
 	<script type="text/javascript" src="scripts/Enviroment/Wave.js"></script>
 	<script type="text/javascript" src="scripts/core/Class.js"></script> 
-	<script type="text/html" src="scripts/core/Dialogue.html"></script>
-        <script type="text/javascript" src="scripts/Test/rect.js"></script>
-        <script type="text/javascript" src="scripts/obstacles/obstacles.js"></script>
+    <script type="text/javascript" src="scripts/Test/rect.js"></script>
+    <script type="text/javascript" src="scripts/obstacles/obstacles.js"></script>
 	<script type="text/javascript" src="scripts/Effects/Lifebar.js"></script>
-        <script type="text/javascript" src="scripts/core/start.js"></script> 
+    <script type="text/javascript" src="scripts/core/start.js"></script> 
 	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 	<script type="text/javascript" src="scripts/ammo/torpedo.js"></script>
 	<script type="text/javascript" src="scripts/submarine/submarine.js"></script> 
@@ -38,6 +37,18 @@
 	<!--//effect scripts-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	
+	<!--script that changes mute/unmute images-->
+	<script>
+	function imageChange(){
+	if (document.getElementById("Sound").src == "img/unmuted.png") {
+            document.getElementById("Sound").src = "img/muted.png";
+        } else if (document.getElementById("Sound").src == "img/muted.png") {
+			document.getElementById("Sound").src = "img/unuted.png";
+		} 
+	}
+	</script>
+
     
 </head>
 
@@ -45,7 +56,6 @@
 	
 	<!--Menu-->
     <div id="Space">
-    <div id="SplashScreen">
 		
 	<!--Start Game-->	
     <div id="StartButton" class="MenuButton">Play!</div>
@@ -60,8 +70,7 @@
     <label for="Hard">Hard</label></div>
 	
 	<!--Mute Sound-->
-	<div id="MuteButton" class="MenuButton">Mute Sound</div>
-    </div>
+	<div id="SoundImg"><img alt="mute" id="Sound" width="30px" height="30px" src="img/unmuted.png" onClick="javascript:imageChange()"/></div>
     </div>
 
 
@@ -80,9 +89,6 @@
 		var h = holder.innerHeight();
 		holder.html('<canvas id="canvas" width="'+w+'px" height="'+h+'px"></canvas>');
         startGame();
-    });
-	$("#MuteButton").click(function () {
-        SoundManager.muteAll();
     });
 
 	</script>
