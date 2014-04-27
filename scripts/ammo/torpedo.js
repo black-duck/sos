@@ -46,8 +46,8 @@ factory['torpedo'] = Class.extend({
 	                            	         ent: this 
 	                                     },
 	            				 //angle: Geometry.vecToRad(this.dir.x, this.dir.y), 
-	                             halfWidth: this.size.y/2,
-	                             halfHeight: this.size.x/2,
+	                             //halfWidth: this.size.y/2,
+	                             //halfHeight: this.size.x/2,
 								
 	                        });     
 		
@@ -90,9 +90,9 @@ factory['torpedo'] = Class.extend({
 	},
 
 	draw: function(ctx) {
-		var rad = this.physBody.GetAngle();	
+		//var rad = this.physBody.GetAngle();	
 		Drawer.image( this.img, 
-						this.pos.x, this.pos.y, rad, 
+						this.pos.x, this.pos.y, 
 						this.size.x, this.size.y );
 
 	},
