@@ -53,7 +53,7 @@ GameEngine = {
 		ctx.fillStyle = "#395368";
 		ctx.fillRect(0,100, this.canvas.width, this.canvas.height -100);
 	
-		ctx.fillStyle = "#B3C0C2";
+		ctx.fillStyle = "#C9CBCD";
                 ctx.fillRect(0 , 0 , this.canvas.width , 100);
 
 		//
