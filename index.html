@@ -4,9 +4,17 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,target-densitydpi=device-dpi,user-scalable=yes" />
+	
+	<!--CSS-->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<!--page title-->
+	
+	<title>Play SOS!</title>
+	
 	<!--core scripts-->
 	<script type="text/javascript" src="scripts/core/Loader.js"></script>  
-    <script type="text/javascript" src="scripts/core/GameEngine.js"></script>
+        <script type="text/javascript" src="scripts/core/GameEngine.js"></script>
 	<script type="text/javascript" src="scripts/core/InputEngine.js"></script>
 	<script type="text/javascript" src="scripts/core/box2D.js"></script>
 	<script type="text/javascript" src="scripts/core/PhysicsEngine.js"></script>
@@ -14,116 +22,50 @@
 	<script type="text/javascript" src="scripts/core/SoundGen.js"></script>
 	<script type="text/javascript" src="scripts/core/Drawer.js"></script>  
 	<script type="text/javascript" src="scripts/core/Gameplay.js"></script> 
-	
 	<script type="text/javascript" src="scripts/core/color.js"></script>  
 	<script type="text/javascript" src="scripts/Enviroment/Seabed.js"></script>
 	<script type="text/javascript" src="scripts/Enviroment/Wave.js"></script>
 	<script type="text/javascript" src="scripts/core/Class.js"></script> 
 	<script type="text/html" src="scripts/core/Dialogue.html"></script>
+        <script type="text/javascript" src="scripts/Test/rect.js"></script>
         <script type="text/javascript" src="scripts/obstacles/obstacles.js"></script>
 	<script type="text/javascript" src="scripts/Effects/Lifebar.js"></script>
-    <script type="text/javascript" src="scripts/core/start.js"></script> 
+        <script type="text/javascript" src="scripts/core/start.js"></script> 
 	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 	<script type="text/javascript" src="scripts/ammo/torpedo.js"></script>
 	<script type="text/javascript" src="scripts/submarine/submarine.js"></script> 
+	
 	<!--//effect scripts-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-	<!--//-->
-    <style>
-        body {
-            background-color: #090909;
-            color: white;
-            font-family: "Trebuchet MS", Verdana, sans-serif;
-        }
-
-        #Space {
-            background-color: black;
-            box-shadow: 0 0 5px #333;
-            display: block;
-            width: 630px;
-            font-size: 90%;
-            text-shadow: 1px 1px 0 black;
-            text-align: center;
-        }
-
-        .MenuButton {
-            padding-top: 10px;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        #Space {
-            text-align: center;
-            width: 800px;
-            height: 600px;
-            margin: 0px auto;
-            border: 1px solid #678; 
-        }
-
-        h2 {
-            font-weight: bold;
-            text-align: center;
-            padding: 5px 0;
-            font-size: 300%;
-            text-transform: uppercase;
-		}
-
-
-		#canvasHolder 
-		{
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			text-align:center;
-		}
-		#canvasHolder canvas 
-		{
-			margin-left:auto;
-			margin-right:auto;
-		
-		}
-        p.description {
-                width: 333px;
-                margin: 10px auto 30px auto;
-                color: #b0b5bf;
-                font-size: 70%;
-                text-align: justify;
-            }
-
-        .description {
-            padding-top: 50px;
-        }
-
-    p a {
-                color: #F2EBEB;
-                text-decoration: none;
-            }
-            p a:hover {
-                color: #948F8F;
-            }
-
-    .MenuButton:hover {
-        color:  #b0b5bf;
-    }
-
-		
-
-    </style>
+    
 </head>
 
 <body>
 	
-	<!--Menu Buttons-->
+	<!--Menu-->
     <div id="Space">
     <div id="SplashScreen">
+		
+	<!--Start Game-->	
     <div id="StartButton" class="MenuButton">Play!</div>
+	
+	<!--Difficulty Settings-->
+	<div id="Difficulty">Difficulty</h3></div>
+	<div id="EasyButton" class="Button">  
+    <input id="Easy" type="radio" name="Difficulty" value="Easy">  
+    <label for="Easy">Easy</label></div>
+    <div id="HardButton" class="Button">  
+    <input id="Hard" type="radio" name="Difficulty" value="Hard">  
+    <label for="Hard">Hard</label></div>
+	
+	<!--Mute Sound-->
 	<div id="MuteButton" class="MenuButton">Mute Sound</div>
-	</div>
-    </div> 
+    </div>
+    </div>
 
 
-    <p class='description'>Submerged Operations of Survival is a post apocalyptic 2d video game created for ludum dare 29.<a href="http://www.ludumdare.com/compo/author/alexio/">here</a> or view the <a href="https://github.com/black-duck/sos">code on Github.</a>.
+    <div><p class='description'>Submerged Operations of Survival is a post apocalyptic 2d video game created for ludum dare 29. Check our Ludum Dare page <a href="http://www.ludumdare.com/compo/author/alexio/">here</a> or view the <a href="https://github.com/black-duck/sos">code on Github</a>.
     </div>
     </p>
 
@@ -138,9 +80,6 @@
 		var h = holder.innerHeight();
 		holder.html('<canvas id="canvas" width="'+w+'px" height="'+h+'px"></canvas>');
         startGame();
-    });
-    $("#DisableMusic").click(function () {
-        SoundManager.disableSound();
     });
 	$("#MuteButton").click(function () {
         SoundManager.muteAll();
