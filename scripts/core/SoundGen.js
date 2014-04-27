@@ -60,7 +60,7 @@ SoundGen = {
  
 	
 
-    	this.loadSound("sounds/3.mp3");
+    	this.loadSound("sounds/UltraMix.ogg");
 
 
    },
@@ -89,3 +89,4 @@ SoundGen = {
 
 }
 SoundGen.init()
+

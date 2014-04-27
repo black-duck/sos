@@ -14,9 +14,9 @@ Player0 = {
 
 assets = { 
 	'background': 'atlas/sea.jpg',
-	'submarine'	: 'img/sub.jpg', 
-        'torpedo' : 'img/torpedo.jpg',
-	'obstacle' : 'img/obstacle.jpg',
+	'submarine'	: 'img/Submarinara.png', 
+        'torpedo' : 'img/torpilh.png',
+	'obstacle' : 'img/Seamine.png',
 }
 
 
@@ -51,7 +51,11 @@ GameEngine = {
 		
 		//DRAFT start
 		ctx.fillStyle = "#395368";
-		ctx.fillRect(0, 100, this.canvas.width, this.canvas.height-100);
+		ctx.fillRect(0,100, this.canvas.width, this.canvas.height -100);
+	
+		ctx.fillStyle = "#B3C0C2";
+                ctx.fillRect(0 , 0 , this.canvas.width , 100);
+
 		//
 		//Player0.submarine.draw(ctx);
 		//DRAFT end
@@ -139,7 +143,7 @@ GameEngine = {
 	},
 	update: function () {
 
-
+	
 		Wave.update()
 		Seabed.update()
 

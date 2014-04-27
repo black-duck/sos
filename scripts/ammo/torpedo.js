@@ -10,8 +10,8 @@ factory['torpedo'] = Class.extend({
 	damage: 1,
 
 	size: {
-		x: 5,
-		y: 10
+		x: 32,
+		y: 4
 	},
 	
 	pos: {
