@@ -90,6 +90,11 @@ SoundGen = {
 	//Mute all
 	muteall : function(){
 		this.sourceNode.gain.value = 0;
+	},
+	
+	//Unmute all
+	unmuteall : function(){
+		this.sourceNode.gain.value = 1;
 	}
 	
 //Mute the sound
