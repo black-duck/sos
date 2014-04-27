@@ -142,7 +142,7 @@ factory['submarine'] = Class.extend({
 				);
 
 		//SoundManager.playSound('sounds/LaserBeam0');
-		this._fireCool = this._fireRate;
+		//this._fireCool = this._fireRate;
 	
 
 	},
