@@ -30,7 +30,7 @@
     <script type="text/javascript" src="scripts/obstacles/obstacles.js"></script>
 	<script type="text/javascript" src="scripts/Effects/Lifebar.js"></script>
     <script type="text/javascript" src="scripts/core/start.js"></script> 
-	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/core/jquery.js"></script>
 	<script type="text/javascript" src="scripts/ammo/torpedo.js"></script>
 	<script type="text/javascript" src="scripts/submarine/submarine.js"></script> 
 	
@@ -43,8 +43,10 @@
 	function imageChange(){
 	if (document.getElementById("Sound").src.match(/unmuted/g)) {
             document.getElementById("Sound").src = "img/disablemute.png";
+            SoundGen.muteall();
         } else if (document.getElementById("Sound").src.match(/disablemute/g)) {
 			document.getElementById("Sound").src = "img/unmuted.png";
+			SoundGen.unmuteall();
 		} 
 	}
 	</script>

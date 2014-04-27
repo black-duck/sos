@@ -35,10 +35,10 @@ factory['submarine'] = Class.extend({
 	
 	img: null,
 	
-	//6 bullets per sec To Be changed
-	_fireRate: (1000/6),
+	//1 bullet per sec 
+	_fireRate: (1000/1),
 	_fireTrigger: false,
-	_fireCool: 10,
+	_fireCool: 2,
 
 	energy: 120,
 	maxEnergy: 150,
@@ -192,7 +192,7 @@ factory['submarine'] = Class.extend({
 	//},
 	
 	moveLeft:function () {
-			this.speed.x = -this.maxSpeed;
+			this.speed.x = this.maxSpeed;
 	},
 	
 	moveRight:function () {

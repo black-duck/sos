@@ -50,6 +50,7 @@ GameEngine = {
 		});
 
 
+		Player0.lifebar = this.spawn('Lifebar');
 		var scale;
 		
 		
