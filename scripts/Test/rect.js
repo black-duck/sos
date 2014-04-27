@@ -23,7 +23,7 @@ factory['Rect'] = Class.extend({
 
 	ang: 0,
 
-    nextSurface: false,
+    	nextSurface: false,
 
 	maxSpeed: 2,
 
@@ -32,6 +32,21 @@ factory['Rect'] = Class.extend({
 
 	life: 100,
 	maxLife: 100,
+
+	move: false,
+
+        //the list of checkpoints for the obstacles
+
+	checkpoints: [],
+
+	//counter for how many item the above list has
+
+	pointCounter: 0,
+
+	newPos: {
+		x: 0,
+		y: 0
+	},
 
 	go: {
 		'up':   0,
@@ -46,8 +61,88 @@ factory['Rect'] = Class.extend({
 		this.img = Loader.load( this.imgSrc);
 
 	},
-draw: function (ctx) {
+
+	
+	update: function() {
+
+                this.pos.x += this.speed.x;
+                this.pos.y += this.speed.y;
+		
+		if ( this.move == true ) {
+			//this.speed.x = 1;
+		
+			if ( this.pos.x < this.newPos.x){
+				this.speed.x = 1;
+			}
+			else if ( this.pos.x > this.newPos.x) {
+				this.speed.x = -1;
+			} 
+			
+			if ( this.pos.y < this.newPos.y) {
+				this.speed.y = 1;
+			}
+			else if ( this.pos.y > this.newPos.y) {
+				this.speed.y = -1;
+			}
+
+
+
+		}
+		
+	
+			
+		//checks if the item reached the wanted place,then stops it
+	
+		if ( this.pos.x == this.newPos.x &&  this.pos.y ==  this.newPos.y) {
+			this.speed.x = 0;
+			this.speed.y = 0;
+			this.move = false;
+		}
+		
+		if (this.checkpoints.length > 0 && this.move == false ) {
+			var newLocation = this.checkpoints[this.pointCounter];
+ 			this.moveTo(newLocation.x, newLocation.y)
+			this.pointCounter += 1;
+	
+		}
+		
+	
+		if ( this.pointCounter >= this.checkpoints.length ) {
+			this.pointCounter = 0;
+		}
+		
+
+		
+	
+
+	},
+	
+
+	
+
+		
+
+	draw: function (ctx) {
       	
-    Drawer.rect(x,y) } 
-	    
+		Drawer.rect(this.pos.x,this.pos.y,this.width,this.height); 
+	},
+
+
+
+	//seting the new position
+
+	moveTo: function (x,y) {
+		this.newPos.x = x;
+		this.newPos.y = y;
+		if ( this.pos.x != this.newPos.x && this.pos.y != this.newPos.y ) {
+			this.move = true; 
+		}
+	},	    
+
+   	//adding items to checkpoints list
+
+	addCheckpoint: function (x,y) {
+		this.checkpoints.push({x:x,y:y})
+	}
+
 })

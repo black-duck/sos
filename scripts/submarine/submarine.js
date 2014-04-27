@@ -16,6 +16,21 @@ factory['submarine'] = Class.extend({
 		y: 250
 	},
 	
+	size: {
+		x: 5,
+		y: 10
+	},
+
+
+
+	dir: {
+		x: 0,
+		y: 0
+	},
+
+
+
+
 	speed: { 
 		x:0,
 		y:0
@@ -90,21 +105,21 @@ factory['submarine'] = Class.extend({
 		this.pos.x += this.speed.x;
 
 		
-		if (this.pos.y < 0 +localHeight) {
-			this.pos.y = 0 +localHeight;
-		}
+	//	if (this.pos.y < 0 +localHeight) {
+	//		this.pos.y = 0 +localHeight;
+	//	}
 		
-		if (this.pos.y > areaHeight - localHeight) {
-			this.pos.y = areaHeight - localHeight;
-		}
+	//	if (this.pos.y > areaHeight - localHeight) {
+	//		this.pos.y = areaHeight - localHeight;
+	//	}
 		
-		if (this.pos.x < 0 +this.width/2) {
-			this.pos.x = 0 +this.width/2;
-		}
+	//	if (this.pos.x < 0 +this.width/2) {
+	//		this.pos.x = 0 +this.width/2;
+	//	}
 		
-		if (this.pos.x > areaWidth -this.width/2) {
-			this.pos.x = areaWidth -this.width/2;
-		}
+	//	if (this.pos.x > areaWidth -this.width/2) {
+	//		this.pos.x = areaWidth -this.width/2;
+	//	}
 		
 		this.speed.y = 0;
 		this.speed.x = 0;
@@ -134,9 +149,9 @@ factory['submarine'] = Class.extend({
 
 	draw: function (ctx) {
  	
-    
-	    Drawer.rawImage( this.img, this.pos.x, this.pos.y, this.ang, this.width, this.height);
-
+    //this.pos.xthis.pos.y
+	    Drawer.rawImage( this.img,this.pos.x ,this.pos.y , this.width, this.height);
+		
 	},	
 
 	

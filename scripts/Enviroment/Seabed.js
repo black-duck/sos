@@ -5,7 +5,7 @@ Seabed = {
 
 	pos : {
 		x:0,
-		y:0
+		y:500
 	},
 
 
@@ -17,8 +17,21 @@ Seabed = {
 	color: "black",
 
 	init: function () {
-		
-		
+	
+		SoundGen.fft = function (array) {
+
+			var sum = 0;
+			for (var i=10; i < 300; i++) {
+				sum += array[i]
+			}
+
+			
+			Seabed.depths.unshift(sum/50);
+			if (Seabed.depths.length > 300) {
+				Seabed.depths.pop()
+			}
+
+		}
 		
 	},
 
@@ -28,12 +41,15 @@ Seabed = {
 
 	},
 
+
 	draw: function () {
 		
-		i = 0;
+		var i = 0;
 		for ( d in this.depths ) {
 
-			Drawer.rect(this.x + this.width-i, this.y-d, 1, d)
+			Drawer.rect(this.pos.x + i*10, this.pos.y - this.depths[d]/2,  
+					 	 10, this.depths[d], 
+						 this.color, this.color)
 			i++
 		}
 		

@@ -33,7 +33,7 @@ factory['Lifebar'] = Class.extend({
 
     update: function() {
 		this.pos.y = Drawer.portPos.y + 20;
-		this.setRatio(Player0.prisma.life/Player0.prisma.maxLife);
+		this.setRatio(Player0.submarine.life/Player0.submarine.maxLife);
     },
 
     draw: function() {
