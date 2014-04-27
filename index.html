@@ -41,10 +41,10 @@
 	<!--script that changes mute/unmute images-->
 	<script>
 	function imageChange(){
-	if (document.getElementById("Sound").src == "img/unmuted.png") {
-            document.getElementById("Sound").src = "img/muted.png";
-        } else if (document.getElementById("Sound").src == "img/muted.png") {
-			document.getElementById("Sound").src = "img/unuted.png";
+	if (document.getElementById("Sound").src.match(/unmuted/g)) {
+            document.getElementById("Sound").src = "img/disablemute.png";
+        } else if (document.getElementById("Sound").src.match(/disablemute/g)) {
+			document.getElementById("Sound").src = "img/unmuted.png";
 		} 
 	}
 	</script>
