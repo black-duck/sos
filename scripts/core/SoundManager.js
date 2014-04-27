@@ -469,5 +469,5 @@ SoundManager = {
 //Draft
 SoundManager.init();
 SoundManager.loadSounds(['sounds/die', 'sounds/transition'], [2, 3]);
-SoundManager.setMusic(['sounds/Nature_Dreams', 'sounds/Epic_Dubstep_Chillstep', 'sounds/Milosc']);
+SoundManager.setMusic(['sounds/Eschlekar', 'sounds/Epic_Dubstep_Chillstep', 'sounds/Milosc']);
 SoundManager.startMusic();
