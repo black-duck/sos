@@ -16,6 +16,7 @@ assets = {
 	'background': 'atlas/sea.jpg',
 	'submarine'	: 'img/sub.jpg', 
         'torpedo' : 'img/torpedo.jpg',
+	'obstacle' : 'img/obstacle.jpg',
 }
 
 
