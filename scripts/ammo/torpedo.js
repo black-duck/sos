@@ -8,6 +8,7 @@ factory['torpedo'] = Class.extend({
 	speed: 700,
 	lifetime: 5000,
 	damage: 1,
+	speed: 60,
 
 	size: {
 		x: 32,
@@ -45,32 +46,21 @@ factory['torpedo'] = Class.extend({
 	                        	 userData: { id: 'torpedo',
 	                            	         ent: this 
 	                                     },
-	            				 //angle: Geometry.vecToRad(this.dir.x, this.dir.y), 
-	                             //halfWidth: this.size.y/2,
-	                             //halfHeight: this.size.x/2,
+	                             halfWidth: this.size.y/2,
+	                             halfHeight: this.size.x/2,
 								
 	                        });     
 		
-		var vec = new Vec2(this.dir.x, this.dir.y);
+		var vec = new Vec2(this.speed, 0);
 		vec.Normalize();
 		vec.Multiply(this.speed);
 		this.physBody.SetLinearVelocity(vec);
 
-        if (arguments.length == 5) {
-            if (arguments[4] == "red") {
-                this.img = assets['torpedo'];
-            }
-        }
 	
 	},
 
 	update: function() {
 		 
-		var vec = new Vec2(this.dir.x, this.dir.y);
-		vec.Normalize();
-		vec.Multiply(this.speed);
-		this.physBody.SetLinearVelocity(vec);
-		
 		if (this.physBody != null) {
 			var pPos = this.physBody.GetPosition();
 			this.pos.x = pPos.x;
