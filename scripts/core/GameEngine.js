@@ -33,6 +33,13 @@ GameEngine = {
 		
 		this.canvas = canvas;
 		this.ctx = canvas.getContext('2d');
+		
+		var scale;
+		Player0.area.h = 500;
+		
+		scale = Math.max([2]);
+		Drawer.setScale(scale, scale);						
+		Player0.area.w = this.canvas.width / Drawer.xScale;
 	},
 
 	draw: function () {
@@ -139,33 +146,33 @@ GameEngine = {
 
 
 		//DRAFT start
-		//if(InputEngine.actions['fire-primary']) {
-		//	Player0.turret._fireTrigger = true;	
-		//}
-		//else {
-		//	Player0.turret._fireTrigger = false;	
-		//}
-//		if(InputEngine.actions['go-up']) {
-//			
-//				Player0.submarine.moveUp();	
-//			
-//		}
-//		else if(InputEngine.actions['go-down']) {
-//			
-//				Player0.submarine.moveDown();
-//			
-//		}
-//		
-//		if(InputEngine.actions['go-left']) {
-//			
-//				Player0.submarine.moveLeft();
-//			
-//		}
-//		else if(InputEngine.actions['go-right']) {
-//			
-//				Player0.submarine.moveRight();
-//			
-//		}
+		if(InputEngine.actions['fire-torpedo']) {
+			Player0.submarine._fireTrigger = true;	
+		}
+		else {
+			Player0.submarine._fireTrigger = false;	
+		}
+		if(InputEngine.actions['go-up']) {
+			
+				Player0.submarine.moveUp();	
+			
+		}
+		else if(InputEngine.actions['go-down']) {
+			
+				Player0.submarine.moveDown();
+			
+		}
+		
+		if(InputEngine.actions['go-left']) {
+			
+				Player0.submarine.moveLeft();
+			
+		}
+		else if(InputEngine.actions['go-right']) {
+			
+				Player0.submarine.moveRight();
+			
+		}
 //		if (InputEngine.actions['rotate']) {
 //			
 //			InputEngine.actions['rotate'] = false;
@@ -176,23 +183,24 @@ GameEngine = {
 		for (var i=ent.length; i-- ; i) {	
 			ent[i].update();   	 
 		}
-//			
-//		Drawer.portPos.y = Player0.submarine.pos.y - (Drawer.portSize.h/2);
-//		Drawer.portPos.x = Player0.submarine.pos.x - (Drawer.portSize.w/2);
-//		if (Drawer.portPos.y < 0) {
-//			Drawer.portPos.y = 0;
-//		}
-//		if (Drawer.portPos.y + Drawer.portSize.h > Player0.area.h) {
-//			Drawer.portPos.y = Player0.area.h - Drawer.portSize.h;
-//		}
-//		if (Drawer.portPos.x < 0) {
-//			Drawer.portPos.x = 0; 
-//		}
-//		if (Drawer.portPos.x + Drawer.portSize.w > Player0.area.w) {
-//			Drawer.portPos.x = Player0.area.w - Drawer.portSize.w;
-//		}
-//			
-//		
+			
+		Drawer.portPos.y = Player0.submarine.pos.y - (Drawer.portSize.h/2);
+		Drawer.portPos.x = Player0.submarine.pos.x - (Drawer.portSize.w/2);
+		if (Drawer.portPos.y < 0) {
+			Drawer.portPos.y = 0;
+		}
+		if (Drawer.portPos.y + Drawer.portSize.h > Player0.area.h) {
+			Drawer.portPos.y = Player0.area.h - Drawer.portSize.h;
+		}
+		if (Drawer.portPos.x < 0) {
+			Drawer.portPos.x = 0; 
+		}
+		if (Drawer.portPos.x + Drawer.portSize.w > Player0.area.w) {
+			Drawer.portPos.x = Player0.area.w - Drawer.portSize.w;
+			
+		}
+			
+		
 		
 	//	this.physic();
 
