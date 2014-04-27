@@ -9,10 +9,10 @@ Seabed = {
 	},
 
 
-	width: 800,
+	width: 1000,
 	height: 8,
 
-	step: 20,
+	step: 5,
 	speed: 1,
 	wait: 0,
 
@@ -56,7 +56,7 @@ Seabed = {
 				i < this.depths.length && x > this.pos.x; 
 				i++, x -= this.step ) {
 
-			d = this.depths[i] 
+			d = this.depths[i]
 				
 			Drawer.rect(x, this.pos.y - d/2,  
 					 	 this.step, d, 
@@ -69,8 +69,7 @@ Seabed = {
 				i < this.depths.length && x > this.pos.x; 
 				i++, x -= this.step ) {
 
-			d = this.depths[i] 
-			d = 2*d/3  
+			d = 2*this.depths[i]/3 
 				
 			Drawer.rect(x, this.pos.y - d/2,  
 					 	 this.step, d, 
