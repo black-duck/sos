@@ -33,10 +33,10 @@ factory['submarine'] = Class.extend({
 
 	speed: { 
 		x:0,
-		y:0
+		y:3
 	},
 	
-	maxSpeed: 3,
+	maxSpeed: 200,
 	
 	img: null,
 	
@@ -49,10 +49,16 @@ factory['submarine'] = Class.extend({
 	maxEnergy: 150,
 	regen: 0.8,
 	
+
+
 	imgSrc: assets['submarine'],
 	
+
 	life: 100,
 	maxLife: 100,
+
+
+	ballast: 10,
 
 	go: {
 		'up':   0,
@@ -85,7 +91,6 @@ factory['submarine'] = Class.extend({
 		var areaHeight = Player0.area.h;
 		var localHeight = this.height/2;
 		
-		//Must use dir insted
 		if (this._fireTrigger && this._fireCool == 0 && this.energy - 10 > 0) {
 			this.energy -= 10;//DRAFT LINE: hardcoded value
 			if (this.energy < 0) {
@@ -100,11 +105,21 @@ factory['submarine'] = Class.extend({
 				this._fireCool = 0;
 			}
 		}
-		
-		this.pos.y += this.speed.y;
-		this.pos.x += this.speed.x;
 
+		this.physBody.SetAngle(0)
 		
+		var vec = new Vec2(0,-this.pos.y/500 + this.ballast/5)
+
+
+		this.physBody.SetLinearVelocity(vec)
+
+	
+		//update possition from physicEngine
+		var pPos = this.physBody.GetPosition();
+		this.pos.x = pPos.x
+		this.pos.y = pPos.y
+
+
 	//	if (this.pos.y < 0 +localHeight) {
 	//		this.pos.y = 0 +localHeight;
 	//	}
@@ -121,11 +136,25 @@ factory['submarine'] = Class.extend({
 	//		this.pos.x = areaWidth -this.width/2;
 	//	}
 		
-		this.speed.y = 0;
-		this.speed.x = 0;
 		
 	},
 	
+	moveUp: function () {
+	
+		this.ballast -= 2*this.speed.y
+		if ( this.ballast < -this.maxSpeed) {
+			this.ballast = -this.maxSpeed
+		}
+	},
+
+	moveDown: function () {
+		this.ballast += this.speed.y
+		if ( this.ballast > this.maxSpeed) {
+			this.ballast = this.maxSpeed
+		}	
+
+	},
+
 	startFire: function() {
 		this._fireTrigger = true;
 	},
@@ -172,13 +201,6 @@ factory['submarine'] = Class.extend({
 	//	}
 
 	//},
-	moveUp: function () {
-			this.speed.y = -this.maxSpeed;
-	},
-	
-	moveDown:function () {
-			this.speed.y = this.maxSpeed;
-	},
 	
 	moveLeft:function () {
 			this.speed.x = -this.maxSpeed;
