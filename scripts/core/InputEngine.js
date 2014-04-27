@@ -53,7 +53,6 @@ InputEngine = {
             canvas.addEventListener('mousemove', InputEngine.onMouseMove,true);
             document.addEventListener('keydown', InputEngine.onKeyDown,true);
             document.addEventListener('keyup', InputEngine.onKeyUp,true);
-
         },
 
 	

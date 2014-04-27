@@ -18,8 +18,9 @@ Seabed = {
 
 	depths: [],
 
-	color: "grey",
-	bgcolor: "black",
+	color: "#C8C8C8",
+	bgcolor: "#141414",
+	newcolor: "#777777",
 
 	__ddelay: 0,
 
@@ -56,12 +57,13 @@ Seabed = {
 				i < this.depths.length && x > this.pos.x; 
 				i++, x -= this.step ) {
 
-			d = this.depths[i]
+			d = this.depths[i] - 10 
 				
 			Drawer.rect(x, this.pos.y - d/2,  
 					 	 this.step, d, 
 						 this.bgcolor, this.bgcolor )
 		}	
+
 
 	
 	
@@ -69,13 +71,16 @@ Seabed = {
 				i < this.depths.length && x > this.pos.x; 
 				i++, x -= this.step ) {
 
-			d = 2*this.depths[i]/3 
+			d = 2*this.depths[i]/3
 				
 			Drawer.rect(x, this.pos.y - d/2,  
 					 	 this.step, d, 
 						 this.color, this.color)
 		}
 
+
+
 	}
+
 
 };
