@@ -16,6 +16,7 @@ function loop() {
     beforeFrame = new Date();
 
     Gameplay.update();
+	PhysicsEngine.update();
     GameEngine.update();
     GameEngine.draw();
 	
