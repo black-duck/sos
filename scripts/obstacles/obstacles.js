@@ -91,11 +91,18 @@ factory['obstacle'] = Class.extend({
 
                 //checks if the item reached the wanted place,then stops it
 
-                if ( this.pos.x == this.newPos.x &&  this.pos.y ==  this.newPos.y) {
-                        this.speed.x = 0;
-                        this.speed.y = 0;
+                if (  Math.abs(this.pos.x - this.newPos.x)< 2 && Math.abs(this.pos.y - this.newPos.y) < 2 ){
+                       
                         this.move = false;
                 }
+
+		if (  Math.abs(this.pos.x - this.newPos.x)< 2 ) {
+			this.speed.x = 0;
+		}
+		
+		 if (  Math.abs(this.pos.y - this.newPos.y)< 2 ) {
+			this.speed.y = 0;
+		}
 
                 if (this.checkpoints.length > 0 && this.move == false ) {
                         var newLocation = this.checkpoints[this.pointCounter];
@@ -128,7 +135,7 @@ factory['obstacle'] = Class.extend({
                		 this.newPos.x = x;
                		 this.newPos.y = y;
                	
-		 if ( this.pos.x != this.newPos.x && this.pos.y != this.newPos.y ) {
+		 if ( this.pos.x != this.newPos.x || this.pos.y != this.newPos.y ) {
                        		 this.move = true;
                 }
         },

@@ -50,9 +50,8 @@ GameEngine = {
 		var ctx = this.ctx;
 		
 		//DRAFT start
-		ctx.drawImage( Loader.load(assets['background']),
-						0, 0, 
-						this.canvas.width, this.canvas.height);
+		ctx.fillStyle = "#395368";
+		ctx.fillRect(0, 100, this.canvas.width, this.canvas.height-100);
 		//
 		//Player0.submarine.draw(ctx);
 		//DRAFT end
