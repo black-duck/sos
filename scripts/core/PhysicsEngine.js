@@ -27,7 +27,7 @@ PhysicsEngine = {
 		Box2D.Common.b2Settings.b2_maxTranslationSquared = 20.0 * 20.0;
 
 		this.world = new World(
-    		new Vec2(0, 0), //zero-gravity    						
+    		new Vec2(0, 1), //zero-gravity    						
     		true ); //don't allow sleep
 		
 		
