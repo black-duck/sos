@@ -22,8 +22,7 @@ SoundGen = {
    		var sourceNode;
     	var analyser;
    		var javascriptNode;
-		
-			
+    
 		// setup a javascript node
 	    javascriptNode = context.createScriptProcessor(2048, 1, 1);
         // connect to destination, else it isn't called
@@ -34,14 +33,12 @@ SoundGen = {
         analyser = context.createAnalyser();
         analyser.smoothingTimeConstant = 0;
         analyser.fftSize = 1024;
-	
-		
-		
+
         // create a buffer source node
         sourceNode = context.createBufferSource();
         sourceNode.connect(analyser);
         analyser.connect(javascriptNode);
-		
+
         sourceNode.connect(context.destination);
  
 		javascriptNode.onaudioprocess = function () {
@@ -56,7 +53,7 @@ SoundGen = {
 
     	}
 	 	this.context = context;
-		this.AudioNode = audioNode;
+
    		this.sourceNode = sourceNode;
     	this.analyser = analyser;
    		//var javascriptNode;
@@ -90,22 +87,23 @@ SoundGen = {
         request.send();
     },
 
-	
-	
-	
-	
-	
-	
-	
-	Mute all
+	//Mute all
 	muteall : function(){
 		this.sourceNode.gain.value = 0;
 	},
 	
-	Unmute all
+	//Unmute all
 	unmuteall : function(){
 		this.sourceNode.gain.value = 1;
-	},
+	}
+	
+//Mute the sound
+	//muteAll: function(){
+		//this.globalMute = true;
+		//if(this.context != null)
+			//this.volumeNode.gain.value = 0;
+		//this.primaryAudio.muted = true;
+	//},
 
 }
 SoundGen.init()
