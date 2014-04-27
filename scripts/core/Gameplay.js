@@ -5,8 +5,10 @@ Gameplay = {
 	clock:0,
 
 	init: function () {
-		
-
+	
+	if (Player0.playing) {
+        Player0.submarine = GameEngine.spawn('submarine');
+        }
 
 
 	},

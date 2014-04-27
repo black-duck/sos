@@ -13,8 +13,8 @@ Player0 = {
 
 
 assets = { 
-//	'background': 'atlas/',
-//	'submarine'	: 'atlas/', 
+	'background': 'atlas/sea.jpg',
+	'submarine'	: 'img/sub.jpg', 
 }
 
 
@@ -33,6 +33,14 @@ GameEngine = {
 		
 		this.canvas = canvas;
 		this.ctx = canvas.getContext('2d');
+		
+		var scale;
+		
+		
+		scale = Math.max([2]);
+		Drawer.setScale(scale, scale);						
+		Player0.area.w = this.canvas.width / Drawer.xScale;
+		Player0.area.h = this.canvas.height / Drawer.yScale;
 	},
 
 	draw: function () {
@@ -40,11 +48,11 @@ GameEngine = {
 		var ctx = this.ctx;
 		
 		//DRAFT start
-		//ctx.drawImage( Loader.load(assets['background']),
-		//				0, 0, 
-		//				this.canvas.width, this.canvas.height);
-		ctx.fillStyle = "rgb(200,0,0)";
-		ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+		ctx.drawImage( Loader.load(assets['background']),
+						0, 0, 
+						this.canvas.width, this.canvas.height);
+		//
+		//Player0.submarine.draw(ctx);
 		//DRAFT end
 		
 		var ent = this.Entities;
@@ -139,33 +147,33 @@ GameEngine = {
 
 
 		//DRAFT start
-		//if(InputEngine.actions['fire-primary']) {
-		//	Player0.turret._fireTrigger = true;	
-		//}
-		//else {
-		//	Player0.turret._fireTrigger = false;	
-		//}
-//		if(InputEngine.actions['go-up']) {
-//			
-//				Player0.submarine.moveUp();	
-//			
-//		}
-//		else if(InputEngine.actions['go-down']) {
-//			
-//				Player0.submarine.moveDown();
-//			
-//		}
-//		
-//		if(InputEngine.actions['go-left']) {
-//			
-//				Player0.submarine.moveLeft();
-//			
-//		}
-//		else if(InputEngine.actions['go-right']) {
-//			
-//				Player0.submarine.moveRight();
-//			
-//		}
+		if(InputEngine.actions['fire-torpedo']) {
+			Player0.submarine._fireTrigger = true;	
+		}
+		else {
+			Player0.submarine._fireTrigger = false;	
+		}
+		if(InputEngine.actions['go-up']) {
+			
+				Player0.submarine.moveUp();	
+			
+		}
+		else if(InputEngine.actions['go-down']) {
+			
+				Player0.submarine.moveDown();
+			
+		}
+		
+		if(InputEngine.actions['go-left']) {
+			
+				Player0.submarine.moveLeft();
+			
+		}
+		else if(InputEngine.actions['go-right']) {
+			
+				Player0.submarine.moveRight();
+			
+		}
 //		if (InputEngine.actions['rotate']) {
 //			
 //			InputEngine.actions['rotate'] = false;
@@ -176,23 +184,24 @@ GameEngine = {
 		for (var i=ent.length; i-- ; i) {	
 			ent[i].update();   	 
 		}
-//			
-//		Drawer.portPos.y = Player0.submarine.pos.y - (Drawer.portSize.h/2);
-//		Drawer.portPos.x = Player0.submarine.pos.x - (Drawer.portSize.w/2);
-//		if (Drawer.portPos.y < 0) {
-//			Drawer.portPos.y = 0;
-//		}
-//		if (Drawer.portPos.y + Drawer.portSize.h > Player0.area.h) {
-//			Drawer.portPos.y = Player0.area.h - Drawer.portSize.h;
-//		}
-//		if (Drawer.portPos.x < 0) {
-//			Drawer.portPos.x = 0; 
-//		}
-//		if (Drawer.portPos.x + Drawer.portSize.w > Player0.area.w) {
-//			Drawer.portPos.x = Player0.area.w - Drawer.portSize.w;
-//		}
-//			
-//		
+			
+		Drawer.portPos.y = Player0.submarine.pos.y - (Drawer.portSize.h/2);
+		Drawer.portPos.x = Player0.submarine.pos.x - (Drawer.portSize.w/2);
+		if (Drawer.portPos.y < 0) {
+			Drawer.portPos.y = 0;
+		}
+		if (Drawer.portPos.y + Drawer.portSize.h > Player0.area.h) {
+			Drawer.portPos.y = Player0.area.h - Drawer.portSize.h;
+		}
+		if (Drawer.portPos.x < 0) {
+			Drawer.portPos.x = 0; 
+		}
+		if (Drawer.portPos.x + Drawer.portSize.w > Player0.area.w) {
+			Drawer.portPos.x = Player0.area.w - Drawer.portSize.w;
+			
+		}
+			
+		
 		
 	//	this.physic();
 
@@ -225,14 +234,14 @@ GameEngine = {
 		return ent;
 	},
 	//Drawer.rect(x, y, width, height, color, fillColor);
-	batchSpawn: function(x,array) {
-		var y=25;
-		for (var i=0; i<array.length; i++) {
+	//batchSpawn: function(x,array) {
+		//var y=25;
+		//for (var i=0; i<array.length; i++) {
 			
-			this.spawn ('Surface',x,y,array[i]); 
-			y+=50;
-		}
-	},
+			//this.spawn ('Surface',x,y,array[i]); 
+			//y+=50;
+		//}
+	//},
 
 	removeEntity: function(ent) {
 
