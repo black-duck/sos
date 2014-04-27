@@ -35,11 +35,12 @@ GameEngine = {
 		this.ctx = canvas.getContext('2d');
 		
 		var scale;
-		Player0.area.h = 500;
+		
 		
 		scale = Math.max([2]);
 		Drawer.setScale(scale, scale);						
 		Player0.area.w = this.canvas.width / Drawer.xScale;
+		Player0.area.h = this.canvas.height / Drawer.yScale;
 	},
 
 	draw: function () {
