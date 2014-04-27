@@ -16,11 +16,6 @@ factory['submarine'] = Class.extend({
 		y: 250
 	},
 	
-	size: {
-		x: 5,
-		y: 10
-	},
-
 
 
 	dir: {
@@ -43,7 +38,7 @@ factory['submarine'] = Class.extend({
 	//6 bullets per sec To Be changed
 	_fireRate: (1000/6),
 	_fireTrigger: false,
-	_fireCool: 0,
+	_fireCool: 10,
 
 	energy: 120,
 	maxEnergy: 150,
@@ -91,19 +86,12 @@ factory['submarine'] = Class.extend({
 		var areaHeight = Player0.area.h;
 		var localHeight = this.height/2;
 		
-		if (this._fireTrigger && this._fireCool == 0 && this.energy - 10 > 0) {
-			this.energy -= 10;//DRAFT LINE: hardcoded value
-			if (this.energy < 0) {
-				this.energy = 0;
-			}
+		if (this._fireTrigger && this._fireCool <= 0 ) {
 			this.__fire();
 		}
-		else if (this._fireCool >  0) {
-			//coolDown 
-			this._fireCool -= 1000/60
-			if (this._fireCool < 0 ) {
-				this._fireCool = 0;
-			}
+		this._fireCool -= 1000/60
+		if (this._fireCool < 0 ) {
+			this._fireCool = 0;
 		}
 
 		this.physBody.SetAngle(0)
@@ -161,17 +149,16 @@ factory['submarine'] = Class.extend({
 	stopFire: function() {
 		this._fireTrigger = false;
 	},
-	//DRAFT-part START
+	//DRAFT-part RT
 	__fire: function() {
-
 		GameEngine.spawn('torpedo',
-					this.pos.x + (5 + this.size.x/2) * this.dir.x,
-					this.pos.y + (5 + this.size.y/2) * this.dir.y,
-					this.dir.x,this.dir.y
+					this.pos.x + (5 + this.width/2) ,
+					this.pos.y + (5 + this.height/2)
+					
 				);
 
 		//SoundManager.playSound('sounds/LaserBeam0');
-		//this._fireCool = this._fireRate;
+		this._fireCool = this._fireRate;
 	
 
 	},
