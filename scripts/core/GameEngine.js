@@ -35,7 +35,7 @@ GameEngine = {
 		
 		this.canvas = canvas;
 		this.ctx = canvas.getContext('2d');
-		
+		Player0.lifebar = this.spawn('Lifebar');
 		var scale;
 		
 		
