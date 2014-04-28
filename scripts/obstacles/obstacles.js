@@ -21,9 +21,9 @@ factory['obstacle'] = Class.extend({
                 y:0
         },
 
-        ang: 0,
 
-        nextSurface: false,
+		damageAmount: 20,
+
 
         maxSpeed: 2,
 
@@ -164,9 +164,15 @@ factory['obstacle'] = Class.extend({
        	},
 
 		onImpact: function(otherEnt) {
-			//otherEnt.damage(this.damageAmount)
-			this._killed=true;
-			console.log("nistazw!!!");
+			otherEnt.damage(this.damage)
+			this._killed = true;
+		},
+
+		damage: function(amount) {
+			this.life -= amount
+			if ( this.life < 0 ) {
+				this._killed = true;
+			}
 		}
 
 })

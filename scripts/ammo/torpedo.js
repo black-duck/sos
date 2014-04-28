@@ -6,9 +6,9 @@ factory['torpedo'] = Class.extend({
 	physBody: null,
 	
 	speed: 700,
-	lifetime: 5000,
-	damage: 1,
-	speed: 60,
+	lifetime: 20000,
+	damageAmount: 5,
+	speed: 80,
 
 	size: {
 		x: 32,
@@ -43,6 +43,7 @@ factory['torpedo'] = Class.extend({
 								 damping: 0,
 								 bullet: true,
 								 density: 0,
+								 friction: 0,
 	                        	 userData: { id: 'torpedo',
 	                            	         ent: this 
 	                                     },
@@ -90,8 +91,15 @@ factory['torpedo'] = Class.extend({
 	},
 
 	onImpact: function(otherEnt) {
-		otherEnt.damage(this.damage);
+		otherEnt.damage(this.damageAmount);
 		this.kill();
+	},
+
+	damage: function(amount) {
+		this.life -= amount;
+		if ( this.life < 0) {
+			this._killed = true;
+		}
 	}
 
 	
