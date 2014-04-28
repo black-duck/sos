@@ -155,7 +155,9 @@ factory['submarine'] = Class.extend({
 	damage: function (amount) {
 		this.life -= amount
 		if (this.life < 0) {
-			this._killed = true
+			this._killed = true;
+			Gameplay.over = true;
+			Gameplay.gameOver();
 		}
 		
 	},
