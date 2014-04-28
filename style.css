@@ -68,8 +68,8 @@
 
 		#canvas{
 			position: absolute;
-			left: -8.5px;
-			top: -16px;
+			left: 0px;
+			top: 0px;
 		}
 
 		#canvasHolder {	
