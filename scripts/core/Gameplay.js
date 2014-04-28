@@ -28,14 +28,20 @@ Gameplay = {
 		
 	},
 
+	draw: function () {
+		
+		if (this.over == true) {
+			GameEngine.ctx.fillStyle="red";
+			GameEngine.ctx.lineStyle="red";
+			GameEngine.ctx.font="34px sans-serif"
+			GameEngine.ctx.fillText("GAME OVER", 400,400);
+		}
+
+	},
+
 	//game over message
 	gameOver: function () { 
-		if (this.over == true) {
-		GameEngine.ctx.fillStyle="red";
-		GameEngine.ctx.lineStyle="red";
-		GameEngine.ctx.font="34px sans-serif"
-        GameEngine.ctx.fillText("GAME OVER", 400,400);
-	  }
+
 	  
 	},
 };

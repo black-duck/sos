@@ -131,6 +131,7 @@ GameEngine = {
 			ent[i].draw(ctx);	
 		}
 		
+		Gameplay.draw()
 		//DRAFT start
 		//TODO: Seperated entity should do this
         ctx.fillStyle="red";
