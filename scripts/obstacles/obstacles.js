@@ -67,7 +67,7 @@ factory['obstacle'] = Class.extend({
 					halfHeight: this.height/2,
 
 					groups: ['enemies'],
-					collidesWith: ['allies', 'enemies']
+					collidesWith: ['allies']
 					
 			});
 			var vec = new Vec2(0,-1)
