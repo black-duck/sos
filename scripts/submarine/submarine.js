@@ -15,16 +15,11 @@ factory['submarine'] = Class.extend({
 		x: 150,
 		y: 250
 	},
-	
-
 
 	dir: {
 		x: 0,
 		y: 0
 	},
-
-
-
 
 	speed: { 
 		x:0,
@@ -160,7 +155,7 @@ factory['submarine'] = Class.extend({
 	damage: function (amount) {
 		this.life -= amount
 		if (this.life < 0) {
-			this.__killed = true
+			this._killed = true
 		}
 		
 	},
