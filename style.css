@@ -33,8 +33,17 @@
 			position: absolute;
 			right: 37%;
 		}
+	
+		#Title {
+			margin-top: -35px;
+			margin-bottom: -30px;
+		}
+		
+		
 		
 		#StartButton {
+			margin-top: -125px;
+			margin-bottom:60px;
 			padding-bottom: 20px;
 			font-size: 250%;
 		}
@@ -76,6 +85,7 @@
 		}
 		
         p.description {
+			padding-top:15px;
             width: 420px;
             margin: 10px auto 30px auto;
             color: black;
