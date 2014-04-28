@@ -27,7 +27,7 @@ PhysicsEngine = {
 		Box2D.Common.b2Settings.b2_maxTranslationSquared = 20.0 * 20.0;
 
 		this.world = new World(
-    		new Vec2(0, 1), //zero-gravity    						
+    		new Vec2(-4, 0), //everything is moving backwords  						
     		true ); //don't allow sleep
 		
 		this.addGroup('allies');
