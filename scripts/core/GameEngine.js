@@ -54,10 +54,10 @@ GameEngine = {
 		var scale;
 		
 		
-		scale = Math.max([2]);
-		Drawer.setScale(scale, scale);						
-		Player0.area.w = this.canvas.width / Drawer.xScale;
-		Player0.area.h = this.canvas.height / Drawer.yScale;
+		Drawer.setScale(2, 2);
+		
+		Player0.area.w = 1000;
+		Player0.area.h = 600;
 	},
 
 	draw: function () {
@@ -65,19 +65,15 @@ GameEngine = {
 		var ctx = this.ctx;
 		var counter = this.counter;
 		//DRAFT start
-		ctx.fillStyle = "#395368";
-		ctx.fillRect(0,100, this.canvas.width, this.canvas.height -100);
+		//ctx.fillStyle = "#395368";
+		//ctx.fillRect(0,100, this.canvas.width, this.canvas.height -100);
 	
-		ctx.fillStyle = "#C9CBCD";
+		//Draw sea
+		Drawer.rect(0, 100, 2560, 1436, 0, "#395368");
+		//Draw sky
+		Drawer.rect(0, 0, 2560, 100, 0, "#C9CBCD");
         
-        ctx.fillRect(0 , 0 , this.canvas.width , 100);
-        ctx.fillStyle="red";
-		ctx.lineStyle="red";
-		ctx.font="34px sans-serif";
-        ctx.fillText(counter, 860, 60);        
-		ctx.fillText("Points", 820, 30);
-		//DRAFT end
-		
+	
 		var ent = this.Entities;
 		
 		/* Draw static Classes */
@@ -135,6 +131,14 @@ GameEngine = {
 			ent[i].draw(ctx);	
 		}
 		
+		//DRAFT start
+		//TODO: Seperated entity should do this
+        ctx.fillStyle="red";
+		ctx.lineStyle="red";
+		ctx.font="34px sans-serif";
+        ctx.fillText(counter, 860, 60);        
+		ctx.fillText("Points", 820, 30);
+		//DRAFT end
 		
 
 	},

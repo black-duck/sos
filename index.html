@@ -111,8 +111,9 @@ yourself and your crew!</div>
 		$("#Space").remove();
         $(".description").remove();
 		var holder = $("#canvasHolder");
-		var w = holder.innerWidth();
-		var h = holder.innerHeight();
+		var h = 769; 
+		var w = 1280;
+
 		holder.html('<canvas id="canvas" width="'+w+'px" height="'+h+'px"></canvas>');
         startGame();
     });
