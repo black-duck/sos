@@ -138,6 +138,10 @@ factory['obstacle'] = Class.extend({
 
 
         },
+        
+        kill: function () {
+		this._killed= true;
+		},
 
  		draw: function (ctx) {
 
@@ -164,8 +168,8 @@ factory['obstacle'] = Class.extend({
        	},
 
 		onImpact: function(otherEnt) {
-			otherEnt.damage(this.damage)
-			this._killed = true;
+			otherEnt.damage(this.damageAmount);
+			this.kill();
 		},
 
 		damage: function(amount) {
