@@ -98,11 +98,12 @@ factory['submarine'] = Class.extend({
 
 		this.physBody.SetAngle(0)
 		
-		var vec = new Vec2(0,-this.pos.y/500 + this.ballast/5)
-
+		var vec = new Vec2(this.speed.x, -this.pos.y/500 + this.ballast/5)
+		
+		if (this.speed.x > 0) this.speed.x /= 2
+		if (this.speed.x < 0) this.speed.x /= 2
 
 		this.physBody.SetLinearVelocity(vec)
-
 	
 		//update possition from physicEngine
 		var pPos = this.physBody.GetPosition();
@@ -110,21 +111,6 @@ factory['submarine'] = Class.extend({
 		this.pos.y = pPos.y
 
 
-	//	if (this.pos.y < 0 +localHeight) {
-	//		this.pos.y = 0 +localHeight;
-	//	}
-		
-	//	if (this.pos.y > areaHeight - localHeight) {
-	//		this.pos.y = areaHeight - localHeight;
-	//	}
-		
-	//	if (this.pos.x < 0 +this.width/2) {
-	//		this.pos.x = 0 +this.width/2;
-	//	}
-		
-	//	if (this.pos.x > areaWidth -this.width/2) {
-	//		this.pos.x = areaWidth -this.width/2;
-	//	}
 		
 		
 	},
@@ -167,32 +153,20 @@ factory['submarine'] = Class.extend({
 
 	draw: function (ctx) {
  	
-    //this.pos.xthis.pos.y
 	    Drawer.rawImage( this.img,this.pos.x ,this.pos.y , this.width, this.height);
 		
 	},	
 
-	
-	//collision: function (other) {
-
-	//	if (this.color == null ) { //DRAFT TODO
-	//		this._changeColor(other.color);
-	//	}
-	//	else {
-	//		if (!GenPath._canTransition(this.color, other.color)) {
-	//			this.life -= 2;
-	//			if (this.life < 0 ) {
-	//				this.life = 0;
-	//				this.crashed = true;
-	//			}
-	//		}
-	//
-	//	}
-
-	//},
+	damage: function (amount) {
+		this.life -= amount
+		if (this.life < 0) {
+			this.__killed = true
+		}
+		
+	},
 	
 	moveLeft:function () {
-			this.speed.x = this.maxSpeed;
+			this.speed.x = -this.maxSpeed;
 	},
 	
 	moveRight:function () {
