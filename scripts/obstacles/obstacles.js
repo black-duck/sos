@@ -141,6 +141,7 @@ factory['obstacle'] = Class.extend({
         
         kill: function () {
 		this._killed= true;
+		GameEngine.counter += 1;
 		},
 
  		draw: function (ctx) {
