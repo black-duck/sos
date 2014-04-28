@@ -5,7 +5,7 @@ Seabed = {
 	
 	pos : {
 		x:0,
-		y:450
+		y:400
 	},
 
 
@@ -38,7 +38,7 @@ Seabed = {
 							},
 							type: 'static',//we should do it dynamic?
 							halfWidth: this.width,
-							halfHeight: this.height,
+							halfHeight: 80,
 							groups: ['enemies'],
 							collidesWith: ['enemies','allies']
 	
