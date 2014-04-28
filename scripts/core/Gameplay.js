@@ -6,8 +6,11 @@ Gameplay = {
 
 	init: function () {
 	
-	if (Player0.playing) {
-        Player0.submarine = GameEngine.spawn('submarine');
+		Wave.init()
+		Seabed.init()
+			
+		if (Player0.playing) {
+        	Player0.submarine = GameEngine.spawn('submarine');
         }
 
 

@@ -3,6 +3,8 @@ Wave = {
 
 	clock: 0 ,
 
+	physBody: null,
+
 	pos : {
 		x:0,
 		y:50
@@ -25,7 +27,20 @@ Wave = {
 	__ddelay: 0,
 
 	init: function () {
-	
+		this.physBody = PhysicsEngine.addBody({
+							id: 'Wave',
+							x : this.pos.x,
+							y : this.pos.y,
+							userData: {
+									id: 'Wave',
+									ent: this
+							},
+							type: 'static',
+							halfWidth: this.width,
+							halfHeight: this.height,
+							groups: ['enemies'],
+							collidesWith: ['enemies','allies']
+			});
 		
 	},
 
