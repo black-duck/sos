@@ -15,7 +15,7 @@ Player0 = {
 assets = { 
 	'background': 'atlas/sea.jpg',
 	'submarine'	: 'img/Submarinara.png', 
-        'torpedo' : 'img/torpilh.png',
+    'torpedo' : 'img/torpilh.png',
 	'obstacle' : 'img/Seamine.png',
 }
 
@@ -28,9 +28,9 @@ GameEngine = {
 
 	ctx: null,
 	canvas: null,
-
+	counter: 0,
 	Entities: [],
-
+	
 	init: function (canvas) {
 		
 		this.canvas = canvas;
@@ -63,14 +63,19 @@ GameEngine = {
 	draw: function () {
 
 		var ctx = this.ctx;
-		
+		var counter = this.counter;
 		//DRAFT start
 		ctx.fillStyle = "#395368";
 		ctx.fillRect(0,100, this.canvas.width, this.canvas.height -100);
 	
 		ctx.fillStyle = "#C9CBCD";
-                ctx.fillRect(0 , 0 , this.canvas.width , 100);
-
+        
+        ctx.fillRect(0 , 0 , this.canvas.width , 100);
+        ctx.fillStyle="red";
+		ctx.lineStyle="red";
+		ctx.font="34px sans-serif";
+        ctx.fillText(counter, 860, 60);        
+		ctx.fillText("Points", 820, 30);
 		//
 		//Player0.submarine.draw(ctx);
 		//DRAFT end
@@ -80,6 +85,7 @@ GameEngine = {
 		/* Draw static Classes */
 		Seabed.draw()
 		Wave.draw()
+		
 
 		/*
 		//Draw all z-index with number n, and store the others.
@@ -130,6 +136,10 @@ GameEngine = {
 		for ( i in ent ) {
 			ent[i].draw(ctx);	
 		}
+		
+		if ( Player0.submarine._killed){
+			 Player0.submarine.zIndex = -1;
+			}
 		
 
 	},
