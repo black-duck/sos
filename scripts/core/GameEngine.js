@@ -76,8 +76,6 @@ GameEngine = {
 		ctx.font="34px sans-serif";
         ctx.fillText(counter, 860, 60);        
 		ctx.fillText("Points", 820, 30);
-		//
-		//Player0.submarine.draw(ctx);
 		//DRAFT end
 		
 		var ent = this.Entities;
@@ -137,9 +135,6 @@ GameEngine = {
 			ent[i].draw(ctx);	
 		}
 		
-		if ( Player0.submarine._killed){
-			 Player0.submarine.zIndex = -1;
-			}
 		
 
 	},
@@ -242,14 +237,6 @@ GameEngine = {
 		this.Entities.push(ent);
 		return ent;
 	},
-	//batchSpawn: function(x,array) {
-		//var y=25;
-		//for (var i=0; i<array.length; i++) {
-			
-			//this.spawn ('Surface',x,y,array[i]); 
-			//y+=50;
-		//}
-	//},
 
 	removeEntity: function(ent) {
 
