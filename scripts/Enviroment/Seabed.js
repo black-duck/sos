@@ -1,11 +1,11 @@
 Seabed = {
 
-
+	physBody: null,
 	clock: 0 ,
 
 	pos : {
 		x:0,
-		y:400
+		y:450
 	},
 
 
@@ -25,8 +25,21 @@ Seabed = {
 	__ddelay: 0,
 
 	init: function () {
-	
+	this.physBody = PhysicsEngine.addBody({
+							id: 'Seabed',
+							x : this.pos.x,
+							y : this.pos.y,
+							userData: {
+									id: 'Seabed',
+									ent: this
+						},
+							type: 'static',
+							halfWidth: this.width,
+							halfHeight: 100,
+							groups: ['enemies','allies'],
+							collidesWith: ['enemies','allies']
 		
+	});
 	},
 
 	update: function () {
