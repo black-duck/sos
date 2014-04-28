@@ -22,6 +22,15 @@
 			color:  #b0b5bf;
 		}
 		
+		.thisgame {
+		position: absolute;
+		left: 1%;
+		top: 45%;
+		font-size: 170%;
+		-webkit-transform: rotate(-35deg); 
+		-moz-transform: rotate(-35deg);
+		}
+		
 		#EasyButton {
 			float: left;
 			position: absolute;
