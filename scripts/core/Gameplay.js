@@ -2,7 +2,9 @@ Gameplay = {
 
 	speed: 1,
 
-	clock:0,
+	clock: 0,
+	
+	over: false,
 
 	init: function () {
 	
@@ -24,7 +26,16 @@ Gameplay = {
 		}
 		this.clock -= 1
 		
-	}
+	},
 
-
+	//game over message
+	gameOver: function () { 
+		if (this.over == true) {
+		GameEngine.ctx.fillStyle="red";
+		GameEngine.ctx.lineStyle="red";
+		GameEngine.ctx.font="34px sans-serif"
+        GameEngine.ctx.fillText("GAME OVER", 400,400);
+	  }
+	  
+	},
 };
