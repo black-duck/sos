@@ -62,6 +62,8 @@ function load() {
 		PhysicsEngine.init(); //PhysicsEngine must be init before GameEngine.
 		GameEngine.init(canvas);
 		Drawer.init(canvas);
+		    Drawer.setScale(canvas.width/800, canvas.width/800);
+	        Scale.setScale(1/(canvas.width/800), 1/(canvas.width/800));
 		Gameplay.init();
     	
     	loop();

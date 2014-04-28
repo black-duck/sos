@@ -133,7 +133,7 @@ GameEngine = {
 		
 
 	},
-	physic: function () {
+	/*physic: function () {
 
 		var ent = this.Entities;
 		for (var i in ent) {
@@ -155,7 +155,7 @@ GameEngine = {
 				}
 			}
 		}
-	},
+	},*/
 	update: function () {
 
 	
