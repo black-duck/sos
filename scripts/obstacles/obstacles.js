@@ -56,8 +56,6 @@ factory['obstacle'] = Class.extend({
 
         init: function(x, y) {
 
-			x = this.pos.x;
-            y = this.pos.y;
 			this.physBody = PhysicsEngine.addBody({
 						
 					id: 'obstacle',
