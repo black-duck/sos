@@ -48,7 +48,7 @@ factory['submarine'] = Class.extend({
 	maxLife: 100,
 
 
-	ballast: 10,
+	ballast: 2,
 
 	go: {
 		'up':   0,
@@ -93,7 +93,7 @@ factory['submarine'] = Class.extend({
 
 		this.physBody.SetAngle(0)
 		
-		var vec = new Vec2(this.speed.x, -this.pos.y/500 + this.ballast/5)
+		var vec = new Vec2(this.speed.x, -this.pos.y/500 + this.ballast/2)
 		
 		if (this.speed.x > 0) this.speed.x /= 2
 		if (this.speed.x < 0) this.speed.x /= 2
