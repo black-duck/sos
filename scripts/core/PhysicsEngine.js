@@ -32,6 +32,7 @@ PhysicsEngine = {
 		
 		this.addGroup('allies');
 		this.addGroup('enemies');
+		this.addGroup('env');
 		
 
 	},
@@ -139,9 +140,14 @@ PhysicsEngine = {
 
 		}
 		
-		fixtureDefinition.density = 1.0;
-		fixtureDefinition.friction = 0; 
-		fixtureDefinition.restitution = 0; 
+		if (entityDef.density !== undefined) bodyDef.density = entityDef.density;
+		else	fixtureDefinition.density = 1.0;
+
+		if (entityDef.friction !== undefined) bodyDef.friction = entityDef.friction;
+		else	fixtureDefinition.friction = 1; 
+
+		if (entityDef.restitution !== undefined) bodyDef.restitution = entityDef.restitution;
+		else	fixtureDefinition.restitution = 1; 
 
 
 		fixtureDefinition.shape = new PolygonShape;
