@@ -143,29 +143,6 @@ GameEngine = {
 		
 
 	},
-	/*physic: function () {
-
-		var ent = this.Entities;
-		for (var i in ent) {
-			if (Player0.submarine == ent[i]) 
-				continue;
-			if (ent[i] === undefined)
-				continue;
-			if (Math.abs(Player0.submarine.pos.x - ent[i].pos.x) <  Player0.submarine.width/2 + ent[i].width/2 &&			
-				Math.abs(Player0.submarine.pos.y - ent[i].pos.y) <  Player0.submarine.height/2 + ent[i].height/2) {
-		
-				if (Math.abs(Player0.submarine.pos.x - ent[i].pos.x) < ent[i].width/2 - Player0.submarine.width/2 && 
-					Math.abs(Player0.submarine.pos.y - ent[i].pos.y) < ent[i].height/2 + Player0.submarine.height/2 ){	
-					Player0.submarine.inside(ent[i]);	
-					return;
-				}
-				else {
-					Player0.submarine.collision(ent[i]);					
-					
-				}
-			}
-		}
-	},*/
 	update: function () {
 
 	
