@@ -28,7 +28,6 @@ Seabed = {
 
 
 	this.physBody = PhysicsEngine.addBody({
-
 							id: 'Seabed',
 							x : this.pos.x,
 							y : this.pos.y,
@@ -46,15 +45,8 @@ Seabed = {
 		
 	});
 },
-						},
-							type: 'static',
-							halfWidth: this.width,
-							halfHeight: 100,
-							groups: ['enemies','allies'],
-							collidesWith: ['enemies','allies']
-		
-	});
-	},
+
+
 
 	update: function () {
 	
