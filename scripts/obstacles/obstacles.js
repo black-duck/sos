@@ -140,7 +140,7 @@ factory['obstacle'] = Class.extend({
         },
         
         kill: function () {
-		this._killed= true;
+			this._killed= true;
 		},
 
  		draw: function (ctx) {
@@ -169,6 +169,7 @@ factory['obstacle'] = Class.extend({
 
 		onImpact: function(otherEnt) {
 			otherEnt.damage(this.damageAmount);
+			GameEngine.spawn("Explosion", this.pos.x, this.pos.y);
 			this.kill();
 		},
 
