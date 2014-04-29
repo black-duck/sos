@@ -3,6 +3,8 @@ Gameplay = {
 	speed: 1,
 
 	clock: 0,
+	time: 0,
+	base: null,
 	
 	over: false,
 
@@ -17,7 +19,18 @@ Gameplay = {
 
 	update: function () {
 	
-		if ( this.clock <= 0 ) {
+		if( this.time >= 200  ) {
+			if (this.base == null ) {
+				this.base = GameEngine.spawn("base", 700, 300);
+				this.clock = 0;
+			}
+			if (this.clock > 1000) {
+				this.win();
+			}
+			this.clock++;
+
+		}
+		else if ( this.clock <= 0 ) {
 
 			for ( var i =0 ; i < 20 * Math.random(); i++ ) {	
 				GameEngine.spawn('obstacle', 800 + i * 50 + 2 * Math.random(), 100 + i+ 400 * Math.random() )
@@ -27,9 +40,12 @@ Gameplay = {
 			}
 	
 			this.clock = 300
+			this.time ++
+			//TODO give points every time
 		}
 		this.clock -= 1
-		
+
+	
 	},
 
 	draw: function () {
@@ -40,6 +56,10 @@ Gameplay = {
 			GameEngine.ctx.font="34px sans-serif"
 			GameEngine.ctx.fillText("GAME OVER", 400,400);
 		}
+
+	},
+
+	win: function () {
 
 	},
 
