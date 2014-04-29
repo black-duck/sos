@@ -20,8 +20,12 @@ Gameplay = {
 		if ( this.clock <= 0 ) {
 
 			for ( var i =0 ; i < 20 * Math.random(); i++ ) {	
-				GameEngine.spawn('obstacle', 700 + i * 50 + 2 * Math.random(), 100 + 200 * Math.random() )
+				GameEngine.spawn('obstacle', 800 + i * 50 + 2 * Math.random(), 100 + i+ 400 * Math.random() )
 			}
+			for ( var i =0 ; i < 5 * Math.random(); i++ ) {	
+				GameEngine.spawn('bubble', Player0.submarine.pos.x + 100 + i * 50 + 2 * Math.random(), 500 + 100 * Math.random() )
+			}
+	
 			this.clock = 300
 		}
 		this.clock -= 1
