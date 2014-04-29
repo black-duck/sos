@@ -100,7 +100,6 @@ factory['bubble'] = Class.extend({
         
         kill: function () {
 			this._killed = true;
-			GameEngine.counter += 1;
 		},
 
  		draw: function (ctx) {
@@ -110,11 +109,11 @@ factory['bubble'] = Class.extend({
 
 
 		onImpact: function(otherEnt) {
+			otherEnt.physBody.ApplyImpulse( this.physBody.GetLinearVelocity(),													otherEnt.physBody.GetWorldCenter())
 
 		},
 
 		damage: function(amount) {
-			this.kill()
 		}
 
 })
