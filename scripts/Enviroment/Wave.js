@@ -46,8 +46,14 @@ Wave = {
 
 	update: function () {
 
+		if ( this.wait > this.step ) {
+
 			this.time++;
-	
+			this.wait = 0
+		}
+		else {
+			this.wait += this.speed
+		}
 	},
 
 
