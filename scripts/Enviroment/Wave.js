@@ -46,6 +46,7 @@ Wave = {
 
 	update: function () {
 
+			this.time++;
 	
 	},
 
