@@ -32,7 +32,7 @@ factory['bubble'] = Class.extend({
 
         life: 100,
         maxLife: 100,
-		lifetime: 500,
+		lifetime: 800,
 
         move: false,
 
