@@ -6,6 +6,7 @@
 
         #Space {
             display: block;
+            height: 550px;
             width: 630px;
             font-size: 90%;
             text-shadow: 1px 1px 0 black;

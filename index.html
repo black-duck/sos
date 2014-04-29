@@ -50,8 +50,6 @@
 	}
 	
 	</script>
-
-	
     
 </head>
 
@@ -69,7 +67,7 @@
 	<!--Difficulty Settings-->
 	<div id="Difficulty">Difficulty</h3></div>
 	<div id="EasyButton" class="Button">  
-    <input id="Easy" type="radio" name="Difficulty" value="Easy" checked>  
+    <input id="Easy" type="radio" name="Difficulty" value="Easy">  
     <label for="Easy">Easy</label></div>
     <div id="HardButton" class="Button">  
     <input id="Hard" type="radio" name="Difficulty" value="Hard">  
@@ -107,10 +105,12 @@ yourself and your crew!</div>
 </div>
 	<!--functions that buttons call-->
 	<div id="canvasHolder"></div>	
-	<script>
+	<script>	
+		
     $("#StartButton").click(function () {
 		$("#Space").remove();
         $(".description").remove();
+        if($('#hard').is(':checked')) { obstacles.damageAmount=105; }
 		var holder = $("#canvasHolder");
 		var h = 769; 
 		var w = 1280;
