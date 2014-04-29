@@ -7,7 +7,7 @@ Gameplay = {
 	base: null,
 	
 	over: false,
-
+	win: false,
 	init: function () {
 	
 		Wave.init()
@@ -28,7 +28,7 @@ Gameplay = {
 				this.clock = 0;
 			}
 			if (this.clock > 1000) {
-				this.win();
+				this.win=true;
 			}
 			this.clock++;
 
@@ -57,13 +57,20 @@ Gameplay = {
 			GameEngine.ctx.fillStyle="red";
 			GameEngine.ctx.lineStyle="red";
 			GameEngine.ctx.font="34px sans-serif"
-			GameEngine.ctx.fillText("GAME OVER", 400,400);
+			GameEngine.ctx.fillText("Argh! The last hope of humanity is now gone. Nice one Captain!", 250,400);
 		}
+		 if (this.win == true) {
+			
+			GameEngine.ctx.fillStyle="red";
+			GameEngine.ctx.lineStyle="red";
+			GameEngine.ctx.font="34px sans-serif"
+			GameEngine.ctx.fillText("Aye! You saved your ship and crew! Good Job!", 250,400);
+			}
 
 	},
 
 	win: function () {
-
+		this.win=true;
 	},
 
 	//game over message
