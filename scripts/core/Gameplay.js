@@ -21,7 +21,10 @@ Gameplay = {
 	
 		if( this.time >= 200  ) {
 			if (this.base == null ) {
-				this.base = GameEngine.spawn("base", 700, 300);
+				this.base = GameEngine.spawn("base", Player0.submarine.pos.x, Player0.submarine.pos.y);
+				//stop the submarine
+				Player0.submarine.speed.x = 0
+				Player0.submarine.maxSpeed = 0
 				this.clock = 0;
 			}
 			if (this.clock > 1000) {
