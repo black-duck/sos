@@ -2,12 +2,13 @@
             background-color:#0C3745;
             color: white;
             font-family: "Trebuchet MS", Verdana, sans-serif;
+            text-align: center;
         }
 
         #Space {
-            display: block;
+			display: inline-block;
             height: 550px;
-            width: 630px;
+            width: 600px;
             font-size: 90%;
             text-shadow: 1px 1px 0 black;
             text-align: center;
@@ -73,7 +74,7 @@
             text-align: center;
             width: 800px;
             height: 150px;
-            margin: 0px auto; 
+             
         }
 
 		#canvas{
