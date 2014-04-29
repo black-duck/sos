@@ -25,12 +25,11 @@ Gameplay = {
 				//stop the submarine
 				Player0.submarine.speed.x = 0
 				Player0.submarine.maxSpeed = 0
-				this.clock = 0;
+				this.clock = 300;
 			}
-			if (this.clock > 1000) {
-				this.win=true;
+			if (this.clock < 0) {
+				this.win = true;
 			}
-			this.clock++;
 
 		}
 		else if ( this.clock <= 0 ) {
@@ -68,10 +67,6 @@ Gameplay = {
 			GameEngine.ctx.fillText("Aye! You saved your ship and crew! Good Job!", 250,400);
 			}
 
-	},
-
-	win: function () {
-		this.win=true;
 	},
 
 	//game over message
