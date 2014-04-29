@@ -11,7 +11,7 @@ Wave = {
 	},
 
 
-	width: 800,
+	width: 1000,
 	height: 8,
 
 	step: 20,
