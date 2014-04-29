@@ -27,23 +27,27 @@ Seabed = {
 	init: function () {
 
 
-	this.physBody = PhysicsEngine.addBody({
-							id: 'Seabed',
-							x : this.pos.x,
-							y : this.pos.y,
-							userData: {
-									id: 'Seabed',
-									ent: this
+		this.physBody = PhysicsEngine.addBody({
+								id: 'Seabed',
+								x : this.pos.x,
+								y : this.pos.y,
+								userData: {
+										id: 'Seabed',
+										ent: this
 
-							},
-							type: 'static',//we should do it dynamic?
-							halfWidth: this.width,
-							halfHeight: 80,
-							groups: ['enemies'],
-							collidesWith: ['enemies','allies']
-	
+								},
+								type: 'static',//we should do it dynamic?
+								halfWidth: this.width,
+								halfHeight: 80,
+								groups: ['enemies'],
+								collidesWith: ['enemies','allies']
 		
-	});
+			
+		});
+
+		for ( var i = 0 ; i < 300; i++) {
+			Seabed.depths.push(100*Math.random())
+		}
 },
 
 
@@ -60,6 +64,10 @@ Seabed = {
 			}
 
 			Seabed.depths.unshift(sum/i);
+			if (Seabed.depths > 1000) {
+				Seabed.depths.pop();
+				Seabed.depths.pop();
+			}
 			this.__ddelay = (this.__ddelay + 1) % 2
 
 			this.wait = 0

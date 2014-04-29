@@ -41,6 +41,7 @@ Gameplay = {
 			for ( var i =0 ; i < 5 * Math.random(); i++ ) {	
 				GameEngine.spawn('bubble', Player0.submarine.pos.x + 100 + i * 50 + 2 * Math.random(), 500 + 100 * Math.random() )
 			}
+			GameEngine.spawn('bubble', 100 + 800 * Math.random(), 500 + 50 * Math.random() )
 	
 			this.clock = 300
 			this.time ++
@@ -70,5 +71,5 @@ Gameplay = {
 	gameOver: function () { 
 
 	  
-	},
+	}
 };

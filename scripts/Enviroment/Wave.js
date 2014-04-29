@@ -47,24 +47,6 @@ Wave = {
 	update: function () {
 
 	
-		if ( this.wait > this.step ) {
-			var array = new Uint8Array(1024)
-			SoundGen.analyser.getByteFrequencyData(array)
-
-			var sum = 0, i;
-			for (i=0; i < 300 && i < array.length; i++) {
-				sum += array[i]
-			}
-
-			Seabed.depths.unshift(sum/i);
-			this.__ddelay = (this.__ddelay + 1) % 2
-			this.time += 1
-
-			this.wait = 0
-		}
-		else {
-			this.wait += this.speed
-		}
 	},
 
 
