@@ -29,8 +29,9 @@
 		left: 1%;
 		top: 45%;
 		font-size: 170%;
-		-webkit-transform: rotate(-35deg); 
-		-moz-transform: rotate(-35deg);
+		-ms-transform:rotate(-35deg); /*for Internet Explorer*/
+		-webkit-transform: rotate(-35deg);/*for Chrome & Safari*/ 
+		-moz-transform: rotate(-35deg);/*for Firefox*/
 		}
 		
 		#EasyButton {
