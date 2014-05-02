@@ -114,8 +114,8 @@ yourself and your crew!</div>
         $(".description").remove();
         if($('#hard').is(':checked')) { obstacles.damageAmount=105; }
 		var holder = $("#canvasHolder");
-		var h = $(document).height(); 
-		var w = $(document).width();
+		var h = $(window).height(); 
+		var w = $(window).width();
 
 		holder.html('<canvas id="canvas" width="'+w+'px" height="'+h+'px"></canvas>');
         startGame();
