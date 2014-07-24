@@ -100,7 +100,7 @@ factory['torpedo'] = Class.extend({
 		if ( this.life < 0) {
 			this._killed = true;
 		}
-	}
+	}   
 
 	
 });
